@@ -1,0 +1,61 @@
+page-createrole {
+
+}
+
+.item-md {
+    padding-left: 16px;
+    padding-right: 0;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: solid 1px;
+    border-bottom-color: #000000 !important;
+}
+
+.icon-size3x {
+	width: 16px !important;
+	margin-top: 10px !important;
+}
+
+ion-label.label.label-md {
+    color: #141e61;
+}
+
+ion-list.list.list-md {
+    width: 100%;
+}
+
+.list-md[inset] {
+    margin: 0px;
+    border-radius: 2px;
+}
+
+button.item.item-block.item-md {
+    padding-top: 10px;
+}
+
+ion-icon.icon.icon-md.ion-ios-information-circle-outline.item-icon {
+    margin-top: 5px;
+    margin-right: 23px;
+}
+
+ion-icon.icon.icon-md.ion-ios-arrow-forward-outline.item-icon {
+    float: right;
+    margin-top: 5px;
+}
+
+.right {
+  float: right;
+    margin-top: 3px;
+    /* right: 11px; */
+    width: 11px;
+    /* right: 14px; */  
+}
+

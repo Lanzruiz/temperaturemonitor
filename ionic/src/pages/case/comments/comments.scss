@@ -1,0 +1,268 @@
+page-comments {
+  .textarea {
+    width: 78%;
+    margin-top: -59px;
+    margin-left: 55px;
+    height: 177px;
+    margin-bottom: 10px;
+    background: #c6c9e1;
+    border:none;
+    overflow: auto;
+  }
+  ion-icon.send.icon.icon-md.ion-md-send {
+    font-size: 30px;
+    position: absolute;
+    right: 20px;
+    bottom: 70px;
+  }
+  .attached-image {
+     border: 1px #FFF solid !important;
+     width: 100%;
+     padding: 4px 4px 4px 4px;
+  }
+
+  #save {
+    color: #FFF;
+    margin-top: -50px;
+  }
+
+  div#textarea-container {
+    width: 80% !important;
+  }
+
+  .textarea.scrollbars {
+    max-height: 100px;
+    overflow: auto;
+  }
+  #text {
+    margin-left: 49px !important
+  }
+
+  .more-options {
+
+     width: 110px !important;
+    height: 50px;
+    display: none;
+      .label {
+          font-size: 9px !important;
+        text-align: center;
+        color: #FFF !important;
+        bottom: 3px;
+      }
+  } 
+
+    /*div:hover {
+       background: #FFF !important;
+    }*/
+/*#59629f*/
+    .options-icon {
+      font-size: 40px !important;
+    display: flex;
+    justify-content: center;
+    }
+
+    .download {
+      background-color: #59629f;
+      width: 50%;
+      height: 100%;
+      float: left;
+    }
+    .trash {
+      background-color: #212e84;
+      width: 50%;
+      height: 100%;
+      float:right;
+      margin-top: -50px;
+    }
+
+    .upload {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+
+    .upload-menu {
+      margin: 0 auto;
+      position: fixed;
+      width: 100% !important;
+      bottom: 56px;
+      height: 100px;
+      display: none;
+      background-color: #ebecf2;
+    }
+
+    .dim {
+      height:100%;
+      width:100%;
+      left:0;
+      top:0;
+      z-index:1 !important;
+      background-color:#bcbcc1;
+      filter: alpha(opacity=75); /* internet explorer */
+      -khtml-opacity: 0.75;      /* khtml, old safari */
+        -moz-opacity: 0.75;      /* mozilla, netscape */
+             opacity: 0.75;      /* fx, safari, opera */
+    }
+
+
+  .menu {
+      width: 20% !important;
+      display: inline-block;
+      background-color: #ebecf2;
+      margin-top: 15px;
+      .menu-label {
+          font-size: 9px !important;
+        text-align: center;
+        color: #212E84 !important;
+        width: 100%;
+        margin-left: 0;
+        margin-top:0;
+      }
+
+      ion-icon.icon.icon-md {
+          color: #212E84;
+        font-size: 40px;
+        /* margin-top: 4px; */
+        border-radius: 12px;
+        background: #c6c9e1;
+        padding: 10px;
+        width: 70px;
+        /* height: 150px; */
+      }
+  }
+
+  .comment-menu {
+    top: 502px;
+    left: 138px;
+    transform-origin: right top 0px;
+    transform: scale(1);
+    height: 109px !important;
+
+  }
+  .popover-viewport {
+    height: 116px;
+  }
+}
+
+.comment-content {
+	background: ebecf2;
+}
+
+
+ion-content.comment-content.content.content-md {
+    background: #ebecf2;
+}
+
+.comment-box {
+	
+	background: white;
+	border: 2px solid #ebecf2;
+    padding: 10px;
+    border-radius: 10px;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 10px !important;
+
+    .text {
+       font-size: 14px;
+       margin-left: 62px;
+       width: auto;
+       text-align: left;
+       color: #222e79;
+    }
+
+    img.photo {
+       float: left;
+       width: 40px;
+       border-radius: 25px;
+       margin-right: 9px;
+    }
+
+    .info {
+        float:left;
+        display: block;
+        text-align: left;
+        .size {
+           font-size: 14px
+        }
+    }
+
+    ion-icon.more.icon.icon-md.ion-ios-more {
+       color: #ebecf2;
+       font-size: 35px !important;
+       float: right;
+       margin-right: 20px;
+       margin-top: 10px;
+    }
+
+    .date {
+       margin-left: 62px;
+       width: auto;
+       text-align: left;
+       color: #415bff;
+       margin-top: 30px;
+    }
+
+    .select-text {
+       display: none;
+    }
+
+    .attachment {
+        height: 40px;
+        background: #ebecf2;
+        max-width: 100pt !important;
+        box-shadow: 5px 5px 10px #e1e0ee;
+        font-size: 12px;
+        padding-top: 10px;
+        .icon {
+          width: 12px;
+          margin-left: 10px;
+          margin-right: 3px;
+        }
+    }
+
+    input, textarea {
+      color: white;
+    }
+
+    
+
+    
+
+}
+
+.fixed-content {
+    margin-top: 56px;
+    margin-bottom: 103px;
+}
+
+ion-row.commenttextarea.row {
+    position: fixed;
+    width: 100% !important;
+    background: #c6c9e1;
+    bottom: 0px;
+    height: 115px;
+    color: white;
+
+    .margin {
+       margin-top: -30px;
+       float: left;
+       width: 80% !important;
+       text-align: left;
+       padding-bottom: 20px;
+    }
+    .attachment-icon {
+       position: absolute;
+       bottom: 70px;
+       float: left;
+       left: 12px;
+       width: 25px;
+       margin-right: 20px;
+    }
+}
+
+
+
+
+

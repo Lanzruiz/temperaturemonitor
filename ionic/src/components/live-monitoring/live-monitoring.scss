@@ -1,0 +1,65 @@
+live-monitoring {
+
+	width: 50%;
+	padding-left: 5px;
+	padding-right: 5px;
+	.live-monitor {
+	        width: 80%;
+	        margin: auto;
+	        text-align: left;
+	      	overflow-y: auto;
+	      	height: 100%;
+	 }
+
+	.red-dot {
+	  height: 15px;
+	  width: 15px;
+	  border-radius: 50%;
+	  display: inline-block;
+	  background-color: #f53d3d;
+	  margin: 1px;
+	}
+
+	.green-dot {
+	  height: 15px;
+	  width: 15px;
+	  border-radius: 50%;
+	  display: inline-block;
+	  background-color: #229042;
+	  margin: 1px;
+	}
+
+	.red-rec {
+	  height: 15px;
+	  width: 15px;
+	  display: inline-block;
+	  background-color: #f53d3d;
+	}
+
+	.green-rec {
+	  height: 15px;
+	  width: 15px;
+	  display: inline-block;
+	  background-color: #229042;
+	}
+
+	.with-alrm-lbl {
+		float: right;
+	}
+
+	.without-alrm-lbl {
+		float: right;
+		    margin-right: -125px;
+	}
+
+
+	hr {
+	  border: 0;
+	  clear:both;
+	  display:block;
+	  width: 100%;               
+	  background-color:#f53d3d !important;
+	  height: 5px;
+	}
+
+}

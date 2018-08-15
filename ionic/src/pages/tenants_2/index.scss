@@ -1,0 +1,141 @@
+page-tenants{
+    ion-header{
+      padding: 5px 0;
+      background-color: #212E84 !important;
+      ion-grid{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        ion-row ion-col ion-title .toolbar-title{
+          font-size: 16px;
+          color: #FFF;
+          font-weight: 400;
+          text-align: center;
+          margin-top: 4px;
+        }
+        ion-row ion-col button{
+          height: auto !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          float: right;
+        }
+        ion-row ion-col button ion-icon{
+          color: #FFF;
+          font-size: 26px;
+        }
+      }
+    }
+
+    ion-content{
+      background-color: #212E84 !important;
+      .scroll-content{ background: #F8F9FF; }
+      ion-list > ion-item{
+        padding: 0 !important;
+        background-color: transparent !important;
+        &:first-child{ margin-top: 16px; }
+      }
+      ion-list > ion-item .item-inner{ padding: 0 !important; }
+      ion-list > ion-item .item-inner ion-label{ margin: 0; }
+      ion-grid{
+        padding: 0 !important;
+        ion-row{
+          &.details-item{
+            padding: 0 5px;
+            ion-col ion-card{
+              margin: 0 !important;
+              box-shadow: none !important;
+              width: 100% !important;
+            }
+            ion-col ion-card ion-label{ margin: 0 !important; }
+            ion-col ion-card ion-card-header{
+              min-height: auto !important;
+              padding-left: 0;
+            }
+            ion-col ion-card ion-card-header button{ margin: 0 !important; }
+            ion-col ion-card ion-card-header h3{
+              font-family: 'Avenir Next Demi';
+              color: #1D2976;
+              font-size: 17px;
+            }
+            ion-col ion-card ion-card-header h3 ion-icon{ font-size: 17px; }
+            ion-col ion-card ion-card-header h3 ion-icon{
+              &.pink{ color: #EC008C; }
+              &.darkblue{ color: #1D2976; }
+              &.red{ color: red; }
+
+            }
+            ion-col ion-card ion-card-header button ion-icon{
+              font-size: 28px;
+              color: #415BFF;
+            }
+            ion-col ion-card ion-card-content{ padding-bottom: 0 !important; }
+            ion-col ion-card ion-card-content ion-label{ margin: 0 !important; }
+            ion-col ion-card ion-card-content ion-item{
+              padding: 0 !important;
+              min-height: auto !important;
+            }
+            ion-col ion-card ion-card-content ion-item{
+              &.email{ margin-bottom: 30px; }
+              &.email p{
+                font-family: 'Avenir Next';
+                font-size: 13px;
+                color: #1D2976;
+              }
+              &.version p{
+                font-family: 'Avenir Next';
+                font-size: 12px;
+                color: #415BFF;
+              }
+            }
+          }
+          &.meta-item{
+            padding: 0 !important;
+            margin-top: 16px;
+            ion-col{
+              padding: 30px 0 !important;
+              &.download-item{ background: #212E84; }
+              &.backup-item{ background: #4D589D; }
+              &.edit-item{ background: #7A82B5; }
+              &.restore-item{ background: #A6ABCE; }
+              &.delete-item{ background: #374290; }
+            }
+            ion-col button{ padding: 0 !important; }
+            ion-col button .button-inner{ flex-flow: column; }
+            ion-col button .button-inner ion-icon{
+              font-size: 30px;
+              color: #FFF;
+              margin-bottom: 5px;
+            }
+            ion-col button .button-inner span{
+              font-family: 'Avenir Next';
+              color: #FFF;
+              font-size: 15px;
+              display: block;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    ion-footer{
+      ion-grid ion-row ion-col{
+        background: none !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      ion-grid ion-row ion-col button{ padding: 0 !important; }
+      ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+      ion-grid ion-row ion-col button .button-inner ion-icon{
+        font-size: 30px;
+        color: #8C93C1;
+        margin-bottom: 5px;
+      }
+      ion-grid ion-row ion-col button .button-inner span{
+        font-family: 'Avenir Next';
+        color: #8C93C1;
+        font-size: 15px;
+        display: block;
+        text-align: center;
+      }
+    }
+}

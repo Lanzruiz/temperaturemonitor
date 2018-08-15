@@ -1,0 +1,74 @@
+<!--
+  Generated template for the AttachmentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Attachment List</ion-title>
+
+    <ion-buttons end> 
+    	<button ion-button (click)="upload()">
+			<ion-icon class="upload" name="cloud-upload"
+			></ion-icon>
+		</button>
+  	</ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list >
+		<ion-item-sliding *ngFor="let file of attachments;let i= index" >
+		    <ion-item>
+			    <ion-label  (click)="fileClick(file)" item-start>
+			    	{{file}}
+			    </ion-label>
+			    <ion-icon id="{{i}}-more-hide" ios="ios-more" md="ios-more"  (click)="moreDisplay(i+'-more')" item-end>
+        		</ion-icon>
+        		<div id="{{i}}-more-show" class="more-options" item-end>
+        			<div class="download">
+        				<ion-icon class="options-icon" name="download"></ion-icon>
+		               <p class="label">Download</p>
+		           </div>
+		           <div class="trash" (click)="deleteClick(file)">
+        				  <ion-icon class="options-icon" ios="ios-trash" md="ios-trash-outline"></ion-icon>
+		               <p class="label">Delete</p>
+		           </div>
+		               
+        		</div>
+		  	</ion-item>
+		  	
+		  </ion-item-sliding> 
+	</ion-list>
+	<ion-row id="uploadid" class="upload-menu margin-top-8px">
+    <form>
+      <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+    	<div class="menu" (click)="getImage()">
+               <ion-icon name="image"></ion-icon>
+               <p class="menu-label">Image</p>
+        </div>
+        <div class="menu" (click)="getPdf()">
+               <ion-icon name="copy"></ion-icon>
+               <p class="menu-label">PDF</p>
+        </div>
+        <div class="menu" (click)="getDocs()">
+               <ion-icon name="document"></ion-icon>
+               <p class="menu-label">Docs</p>
+        </div>
+		<div class="menu" (click)="getVideo()">
+               <ion-icon name="play"></ion-icon>
+               <p class="menu-label">Video</p>
+        </div>
+        <div class="menu" (click)="clickCamera()">
+               <ion-icon name="camera"></ion-icon>
+               <p class="menu-label">Camera</p>
+        </div>
+      </form>
+    </ion-row>
+
+
+</ion-content>

@@ -1,0 +1,41 @@
+page-menuv2 {
+  button.item.item-block.item-md {
+    border-bottom: 1px solid #ebecf2 !important;
+  }
+}
+
+
+ion-label.label.label-md {
+    color: #141e61;
+}
+
+ion-list.list.list-md {
+    width: 100%;
+}
+
+.list-md[inset] {
+    margin: 0px;
+    border-radius: 2px;
+}
+
+button.item.item-block.item-md {
+    padding-top: 10px;
+}
+
+ion-icon.icon.icon-md.ion-ios-information-circle-outline.item-icon {
+    margin-top: 5px;
+    margin-right: 23px;
+}
+
+ion-icon.icon.icon-md.ion-ios-arrow-forward-outline.item-icon {
+    float: right;
+    margin-top: 5px;
+}
+
+.right {
+  float: right;
+    margin-top: 3px;
+    /* right: 11px; */
+    width: 11px;
+    /* right: 14px; */  
+}

@@ -1,0 +1,21 @@
+<div class="component" (click)="onClick()">
+<hr [ngStyle]="{'background-color':params.color}">
+
+
+<div class="component-header"> 
+	{{params.title}}
+	<br>
+	<p class="subtitle">{{params.subtitle}}<p>
+</div>
+
+<div class="component-body">
+	<canvas id="guage"></canvas>
+</div>
+
+ <div class="component-footer">
+   <span class="region">{{params.region}}</span>
+   <br>
+   <span class="site">{{params.site}}</span>
+   <span class="degree">{{params.data}}°</span>
+</div>
+</div>

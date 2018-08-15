@@ -1,0 +1,41 @@
+page-profile {
+
+  .body {
+     margin-top: 40px;
+  }
+
+  .margin {
+	
+	margin-left: 20px !important;
+	margin-bottom: 10px !important;
+	padding-top: 10px;
+  }
+}
+
+.avatar {
+	width: 5em;
+	float:left;
+	margin-left: 15px;
+}
+.other-info-title {
+	color: #212E84 !important;
+	text-align: left;
+	margin-top: 100px !important;
+}
+.details {
+	color: #212E84 !important;
+	font-size: 1.5em;
+}
+.edit {
+   position: absolute;
+   right: 3px;
+   top: 12px;
+   color: #FFF !important;
+}
+.display-block {
+    text-align: left;
+    margin-left: 20px;
+	display:block;
+	color: #212E84 !important;
+	padding-top: 8px;
+}

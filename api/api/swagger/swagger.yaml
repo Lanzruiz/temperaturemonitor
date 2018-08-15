@@ -1,0 +1,1933 @@
+swagger: "2.0"
+info:
+  description: "The Monika Cloud Cloud Platform API provides web services for the Monika suite of apps and systems."
+  version: "0.1.0"
+  title: "Monika Cloud Patform API"
+  termsOfService: "https://cloud.monika.com/terms/"
+  contact:
+    email: "swood@monika.com"
+  license:
+    name: "Commercial"
+    url: "http://cloud.monika.com/licenses/license-1.0.html"
+host: "127.0.0.1:9000"
+basePath: "/api/v1"
+tags:
+- name: "user"
+  description: "User management, logins, passwords and 2FA"
+- name: "permission"
+  description: "User permissions"
+- name: "tenant"
+  description: "Tenant management, backups, restores, activation and deactivation"
+- name: "case"
+  description: "Case management, smart diagnostics, commenting and file attachments"
+  externalDocs:
+    description: "Find out more about how cases work"
+    url: "http://www.monika.com/case-management"
+- name: "dashboard"
+  description: "Dashboards and widgets"
+- name: "role"
+  description: "User roles that provide default permissions and default dashboards"
+schemes:
+- "http"
+paths:
+  /user:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "Add a new user to the system"
+      description: "Add a new user to the system"
+      operationId: "addUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "The user object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: "User successfuly added"
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                format: uuid
+        400:
+          description: "The user data posted was not valid"
+          schema:
+            $ref: "#/definitions/Error"
+        409:
+          description: "There is a user already matching that data"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "Forbidden"
+  /user/list:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "Get a list of users, filtered and sorted"
+      description: "Get a list of users, filtered and sorted"
+      operationId: "listUsers"
+      parameters:
+      - in: body
+        name: body
+        description: "pararmeters for filtering and sorting the list of users"
+        required: false
+        schema:
+          type: object
+          properties:
+            userListFilterQuery:
+              $ref: "#/definitions/UserListFilterQuery"
+            userListSortQuery:
+              $ref: "#/definitions/UserListSortQuery"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+        400:
+          description: "Invalid query data"
+          schema:
+            $ref: "#/definitions/Error"
+  /user/{userId}:
+    x-swagger-router-controller: user.controller
+    get:
+      tags:
+      - "user"
+      summary: "Retreive the details of the user by id"
+      description: "Retreive the details of the user by id"
+      operationId: "getUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user account you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        404:
+          description: "User not found"
+          schema:
+            $ref: "#/definitions/Error"
+    patch:
+      tags:
+      - "user"
+      summary: "Update an existing user's details in the system"
+      description: "Updates the users details"
+      operationId: "updateUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user you would like to update"
+        required: true
+        type: string
+        format: uuid
+      - name: JsonPatch
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/PatchRequest"
+      responses:
+        200:
+          description: "User successfuly updated"
+          schema:
+            type: string
+        400:
+          description: "The user data posted was not valid"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "User not found"
+          schema:
+            $ref: "#/definitions/Error"
+  /user/{userId}/activate:
+    x-swagger-router-controller: user.controller
+    patch:
+      tags:
+      - "user"
+      summary: "Activates a user that was previously deactivated"
+      description: "Activates a user that was previously deactivated"
+      operationId: "activateUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user account you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "User already active"
+        404:
+          description: "User not found"
+  /user/{userId}/deactivate:
+    x-swagger-router-controller: user.controller
+    patch:
+      tags:
+      - "user"
+      summary: "Deactivates a user that was previously deactivated"
+      description: "A user cannot be deleted from the system, because there may be audit records assocaited with them. Instead, we deactivate the user."
+      operationId: "deactivateUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user account you would like to deactivate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "User already deactivated"
+        404:
+          description: "User not found"
+  /user/login:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: body
+        in: body
+        description: "The login information"
+        required: true
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+              description: "The email address of the user logging in"
+            password:
+              type: string
+              description: "The password for login in clear text"
+          required:
+          - email
+          - password
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+          headers:
+            X-Rate-Limit:
+              type: integer
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: string
+              format: "date-time"
+              description: "date in UTC when token expires"
+        400:
+          description: "Invalid username/password supplied"
+  /user/logout:
+    x-swagger-router-controller: user.controller
+    delete:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user and deletes their session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /user/{userId}/2fa:
+    x-swagger-router-controller: user.controller
+    delete:
+      tags:
+      - "user"
+      summary: "Deletes or resets the users 2fa key"
+      description: "To reset a users 2FA, we delete their 2FA key so that upon next login, it asks the user to setup 2FA again"
+      operationId: "userDelete2fa"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's 2FA service you would like to delete or reset"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "User's 2FA Key was successfully deleted."
+        404:
+          description: "User not found"
+    get:
+      tags:
+      - "user"
+      summary: "Get the current 2FA settings (and key) for the user or create one if it doesn't exist"
+      description: "If the user does not have 2FA configured, when they log in they will be prompted to set it up. This call returns the key which can be used on a key generation app such as Authy, Google Authenticator, etc"
+      operationId: "userNew2faKey"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's 2FA service you would generate and retrieve a new key for"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "User's 2FA Key was successfully deleted."
+          schema:
+            $ref: "#/definitions/User2faSettings"
+        404:
+          description: "User not found"
+  /user/{userId}/2fa/activate:
+    x-swagger-router-controller: user.controller
+    patch:
+      tags:
+      - "user"
+      summary: "Activate the current 2FA key for the user"
+      description: "To activate the 2FA key for the user, a valid 2FA token must be received."
+      operationId: "userActivate2fa"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's 2FA service you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      - name: "2FAToken"
+        in: body
+        description: "The generated Token as at the current date/time"
+        required: true
+        schema:
+          type: string
+          format: password
+      responses:
+        200:
+          description: "Success. The 2FA service for the user was activated"
+        404:
+          description: "User not found"
+  /user/{userId}/2fa/verify:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "Send the 2FA token and verify the session"
+      description: "After validating email and password, the 2FA token must be provided to validate the users session. This call receives the 2FA token and validates the users session."
+      operationId: "userVerify2fa"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's 2FA service you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "Success. The 2FA service for the user was activated"
+        404:
+          description: "User not found"
+  /user/password/reset/email:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "Request a password reset code be sent to your email address"
+      description: "If the email address is found, a password reset code will be sent."
+      operationId: "userPasswordResetSendCodeToEmail"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "emailAddress"
+        in: body
+        description: "the email address of the user"
+        required: true
+        schema: 
+          type: string
+          format: "email"
+      responses:
+        200:
+          description: "Success. A password reset token has been emailed to the users email address."
+        404:
+          description: "A user with that email address was not found."
+  /user/password/reset/check:
+    x-swagger-router-controller: user.controller
+    get:
+      tags:
+      - "user"
+      summary: "check that the password reset code is valid"
+      description: "If the email address is found, a password reset code will be sent."
+      operationId: "userPasswordResetCheckCode"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "passwordResetCode"
+        in: body
+        description: "the password reset code"
+        required: true
+        schema:
+          type: string
+          format: password
+      responses:
+        200:
+          description: "Success. The password reset code is valid."
+        404:
+          description: "A password reset request with that code was not found."
+  /user/password/reset/change:
+    x-swagger-router-controller: user.controller
+    post:
+      tags:
+      - "user"
+      summary: "As part of the password reset process, change the users password using the reset code"
+      description: "As part of the password reset process, change the users password using the reset code"
+      operationId: "userPasswordResetChangePassword"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "passwordResetInformation"
+        in: body
+        description: "The information required for resetting the password"
+        required: true
+        schema:
+          type: object
+          required:
+          - passwordResetCode
+          - password
+          - confirmPassword
+          properties: 
+            passwordResetCode:
+              type: string
+              format: password
+            password:
+              type: string
+              format: password
+            confirmPassword:
+              type: string
+              format: password
+      responses:
+        200:
+          description: "Success. The user's password has been changed"
+        400:
+          description: "Failed. The passwords do not match. Please try again."
+        404:
+          description: "A password reset request with that code was not found."
+  /user/{userId}/permission:
+    x-swagger-router-controller: userPermission.controller
+    post:
+      tags:
+      - "user"
+      summary: "Add a new permission for a user"
+      description: "Add a new permission for a user"
+      operationId: "addPermissionForUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who should have this permission added to their list of permissions"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "The permission object to be added"
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: "#/definitions/Permission"
+      responses:
+        200:
+          description: "Permission successfuly added"
+          schema:
+            type: string
+        404:
+          description: "User not found"
+        405:
+          description: "Invalid input"
+    put:
+      tags:
+      - "user"
+      summary: "Update an existing permission for a user"
+      description: "Updates the permission details"
+      operationId: "updatePermissionForUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's permission is being updated"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "The permission object to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Permission"
+      responses:
+        200:
+          description: "Permission successfuly updated"
+        405:
+          description: "Invalid input"
+        404:
+          description: "User or Permission not found"
+  /user/{userId}/permission/list:
+    x-swagger-router-controller: userPermission.controller
+    post:
+      tags:
+      - "user"
+      summary: "Get a list of permissions for a user, filtered and sorted"
+      description: "Get a list of permissions for a user, filtered and sorted."
+      operationId: "listPermissionsForUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's permissions you want to list"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "Parameters that filter and sort the list of permissions"
+        required: false
+        schema:
+          type: object
+          properties:
+            permissionListFilterQuery:
+              $ref: "#/definitions/PermissionListFilterQuery"
+            permissionListSortQuery:
+              $ref: "#/definitions/PermissionListSortQuery"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Permission"
+        400:
+          description: "Invalid query data"
+  /user/{userId}/permission/{permissionId}:
+    x-swagger-router-controller: userPermission.controller
+    get:
+      tags:
+      - "user"
+      summary: "Retreive the details of a users permission by permission id"
+      description: "Retreive the details of a users permission by permission id"
+      operationId: "getPermissionForUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user account you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      - name: "permissionId"
+        in: path
+        description: "The id of the permission you would like to get the details of"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Permission"
+        404:
+          description: "Permission not found"
+    delete:
+      tags:
+      - "permission"
+      summary: "Deletes a user's permission"
+      description: "Deletes or removes a user's permission"
+      operationId: "deletePermissionForUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: path
+        description: "The id of the user who's permission you want to delete or remove"
+        required: true
+        type: string
+        format: uuid
+      - name: "permissionId"
+        in: path
+        description: "The id of the permission you would like to delete or remove"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "User's permission was deleted."
+        404:
+          description: "Permission not found"
+  /user/permissionType/list:
+    x-swagger-router-controller: userPermission.controller
+    get:
+      tags:
+      - "permission"
+      summary: "Get a list of permission types"
+      description: "Get a list of permissions types"
+      operationId: "listUserPermissionTypes"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/PermissionType"
+        400:
+          description: "Invalid query data"
+  /user/permissionType/{permissionTypeId}:
+    x-swagger-router-controller: userPermission.controller
+    get:
+      tags:
+      - "permission"
+      summary: "Retreive the details of the permission type by id"
+      description: "Retreive the details of the permission type by id"
+      operationId: "getUserPermissionType"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "permissionTypeId"
+        in: path
+        description: "The id of the permission type you would like to retrieve"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/PermissionType"
+        404:
+          description: "PermissionType not found"
+  /tenant:
+    x-swagger-router-controller: tenant.controller
+    post:
+      tags:
+      - "tenant"
+      summary: "Add a new tenant to the system"
+      description: "Add a new tenant to the system"
+      operationId: "addTenant"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "The tenant object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Tenant"
+      responses:
+        200:
+          description: "Tenant successfuly added"
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                format: uuid
+        400:
+          description: "The user data posted was not valid"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "Tenant not found"
+          schema:
+            $ref: "#/definitions/Error"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/Error"
+        409:
+          description: "There is a user already matching that data"
+          schema:
+            $ref: "#/definitions/Error"       
+  /tenant/list:
+    x-swagger-router-controller: tenant.controller
+    post:
+      tags:
+      - "tenant"
+      summary: "Get a list of tenants, filtered and sorted"
+      description: "Get a list of tenants, filtered and sorted"
+      operationId: "listTenants"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "pararmeters for filtering and sorting the list of tenants"
+        required: false
+        schema:
+          type: object
+          properties:
+            tenantListFilterQuery:
+              $ref: "#/definitions/TenantListFilterQuery"
+            tenantListSortQuery:
+              $ref: "#/definitions/TenantListSortQuery"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Tenant"
+        400:
+          description: "Invalid query data"
+  /tenant/{tenantId}:
+    x-swagger-router-controller: tenant.controller
+    get:
+      tags:
+      - "tenant"
+      summary: "Retreive the details of the tenant by id"
+      description: "Retreive the details of the tenant by id"
+      operationId: "getTenant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Tenant"
+        400:
+          description: "Tenant already active"
+        404:
+          description: "Tenant not found"
+    patch:
+      tags:
+      - "tenant"
+      summary: "Update an existing tenant's details in the system"
+      description: "Updates the tenants details"
+      operationId: "updateTenant"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to update"
+        required: true
+        type: string
+        format: uuid
+      - name: JsonPatch
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/PatchRequest"
+      responses:
+        200:
+          description: "Tenant successfuly updated"
+          schema:
+            type: string
+        404:
+          description: "Tenant not found"
+        405:
+          description: "Invalid input"      
+    delete:
+      x-swagger-router-controller: tenant.controller
+      tags:
+      - "tenant"
+      summary: "Delete the tenant by id"
+      description: "Delete the tenant by id. Note, this is a permanent operation which cannot be undone. Make a backup first."
+      operationId: "deleteTenant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to delete"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation, tenant deleted"
+          schema:
+            type: string
+        404:
+          description: "Tenant not found"
+  /tenant/{tenantId}/activate:
+    x-swagger-router-controller: tenant.controller
+    patch:
+      tags:
+      - "tenant"
+      summary: "Activates a tenant that was previously deactivated"
+      description: "Activates a tenant that was previously deactivated"
+      operationId: "activateTenant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to activate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+        400:
+          description: "Tenant already active"
+        404:
+          description: "Tenant not found"
+  /tenant/{tenantId}/deactivate:
+    x-swagger-router-controller: tenant.controller
+    patch:
+      tags:
+      - "tenant"
+      summary: "Deactivates a tenant that is currently active"
+      description: "Since a customer may stop being a customer and then start being a customer again, instead of deleting them we can deactivate them so that we can easily activate them later. This could be useful in a situation where they do not pay agreed service fees, so we deactivate them, and once they pay the required fees we can then reactivate their account."
+      operationId: "deactivateTenant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to deactivate"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+        400:
+          description: "Tenant already deactivated"
+        404:
+          description: "Tenant not found"
+  /tenant/{tenantId}/backup:
+    x-swagger-router-controller: tenant.controller
+    get:
+      tags:
+      - "tenant"
+      summary: "starts an asynchronous backup job to create a backup file containing all of a tenants data"
+      description: "starts an asynchronous backup job to create a backup file containing all of a tenants data. This call create a queue job and return the address of that queue job, for example:
+      
+        HTTP/1.1 202 Accepted
+        Location: /backup/queue/12345
+        
+        @see http://restcookbook.com/Resources/asynchroneous-operations/
+        and https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/
+        "
+      operationId: "backupTenant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tenantId"
+        in: path
+        description: "The id of the tenant you would like to backup"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        202:
+          description: "Backup job queued successfully"
+        404:
+          description: "Tenant not found"
+  /tenant/backup/queue:
+    x-swagger-router-controller: tenant.controller
+    get:
+      tags:
+      - "tenant"
+      summary: "returns a list of the backup jobs and their status"
+      description: "returns a list of the backup jobs and their status. Completed backup jobs are periodically cleaned out (e.g. every 24 hours)"
+      operationId: "getBackupJobs"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/BackupJob"
+  /tenant/backup/queue/{jobId}:
+    x-swagger-router-controller: tenant.controller
+    get:
+      tags:
+      - "tenant"
+      summary: "returns the progress and status of a backup job"
+      description: "returns the progress and status of a backup job. It is expected that this is called periodically to update the user interface with time remaining"
+      operationId: "getBackupJob"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "jobId"
+        in: path
+        description: "The id of the backup job you want to get the details of"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200: 
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/BackupJob"
+        404:
+          description: "Backup job not found"
+    delete:
+      tags:
+      - "tenant"
+      summary: "Cancels a backup job and deletes any associated files"
+      description: "Where a backup job is unfinished, it cancels it and then deletes any associated files. Where a backup job is completed, it deletes the associated files and removes it from the queue."
+      operationId: "deleteBackupJob"
+      parameters:
+      - name: "jobId"
+        in: path
+        description: "The id of the backup job you want to delete"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200: 
+          description: "Backup job cancelled"
+        404:
+          description: "Backup job not found"
+  /tenant/backup/queue/{jobId}/notify/email:
+    x-swagger-router-controller: tenant.controller
+    patch:
+      tags: 
+      - "tenant"
+      summary: "update a backup job to set it to send an email to the given email addresses once it's complete and ready for download"
+      description: "update a backup job to set it to send an email to the given email addresses once it's complete and ready for download"
+      operationId: "updateBackupJobSetNotificationEmailAddresses"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "jobId"
+        in: path
+        description: "The id of the backup job you want to update notification details for"
+        required: true
+        type: string
+        format: uuid
+      - name: "notificationInformation"
+        in: body
+        required: true
+        description: "notification information, including email addresses and a custom download url to put in the email"
+        schema:
+          type: object
+          properties:
+            emailAddresses:
+              type: array
+              items:
+                type: string
+                description: "an email address"
+                format: "email"
+            downloadUrl:
+              description: "In the case where we want to redirect the client to a UI page before initiating the download, you can set this download URL"
+              type: string
+              format: url
+      responses:
+        200:
+          description: "The email notification settings for the backup job have been updated"
+  /tenant/backup/queue/{jobId}/download:
+    x-swagger-router-controller: tenant.controller
+    get:
+      tags: 
+      - "tenant"
+      summary: "download a completed backup"
+      description: "once a backup is completed, it can be downloaded via this link. The backup file provided will be in zip format"
+      operationId: "downloadCompletedBackupFile"
+      produces:
+      - "application/zip"
+      parameters:
+      - name: "jobId"
+        in: path
+        description: "The id of the backup you want to download"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "The backup file is successfully downloading"
+          schema:
+            type: file
+        404:
+          description: "The backup job is not found"
+        405:
+          description: "The backup job is not complete and therefore not ready for download. Please try again later"
+  /tenant/restore:
+    x-swagger-router-controller: tenant.controller
+    put:
+      tags: 
+      - "tenant"
+      summary: "restores the tenant by uploading the backup file"
+      operationId: "restoreTenantFromUploadedFile"
+      consumes:
+      - "application/zip"
+      responses:
+        200:
+          description: "backup file uploaded and restored successfully"
+        405:
+          description: "The backup file is corrupted or in an unexpected format"
+    post:
+      tags: 
+      - "tenant"
+      summary: "restores the tenant by posting a download link to the backup file"
+      operationId: "restoreTenantFromURL"
+      consumes:
+      
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "backupFileURL"
+        in: body
+        required: true
+        description: "The URL where the backup file can be downloaded"
+        schema:
+          type: string
+          format: url
+      responses:
+        200:
+          description: "The backup file has been downloaded and the tenant has been restored"
+        405:
+          description: "The backup file is corrupted or in an unexpected format"
+
+  /case/list:
+    x-swagger-router-controller: case.controller
+    post:
+      tags:
+      - "case"
+      summary: "Get a list of case, filtered and sorted"
+      description: "Get a list of case, filtered and sorted"
+      operationId: "listCases"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "pararmeters for filtering and sorting the list of cases"
+        required: false
+        schema:
+          type: object
+          properties:
+            tenantListFilterQuery:
+              $ref: "#/definitions/CaseListFilterQuery"
+            tenantListSortQuery:
+              $ref: "#/definitions/CaseListSortQuery"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Case"
+        400:
+          description: "Invalid query data"
+  /case/{caseId}/comment:
+    x-swagger-router-controller: case.controller0
+    post:
+      tags:
+      - "case"
+      summary: "add comment to the case"
+      description: "upload comment to the case"
+      operationId: "addComment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "caseId"
+        in: path
+        description: "The id of the case id you would like to have the comment"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "pararmeters for adding comment to the case"
+        required: true
+        schema:
+          $ref: "#/definitions/Comment"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+            description: "Comment successfully added"
+        400:
+          description: "Invalid query data"
+  /case/comment:
+    x-swagger-router-controller: case.controller        
+    put:
+      tags:
+      - "case"
+      summary: "Update an existing comment from cases"
+      description: "Updates the comment"
+      operationId: "editComment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "The comment object to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Comment"
+      responses:
+        200:
+          description: "Comment successfuly updated"
+          schema:
+            type: string
+        404:
+          description: "Comment not found"
+        405:
+          description: "Invalid input"
+  /case/{caseId}/attachment:
+    x-swagger-router-controller: case.controller
+    post:
+      tags:
+      - "case"
+      summary: "upload attachment to the case"
+      description: "upload attachment to the case"
+      operationId: "uploadAttachment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "caseId"
+        in: path
+        description: "The id of the case id you would like to have the attachment"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "pararmeters for adding attachment to the case"
+        required: true
+        schema:
+          $ref: "#/definitions/Attachment"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+            description: "Comment successfully added"
+        400:
+          description: "Invalid query data"
+  /case/attachment/{attachmentId}:
+    x-swagger-router-controller: case.controller
+    delete:
+      tags:
+      - "case"
+      summary: "Delete the attachment by id"
+      description: "Delete the attachment by id. Note, this is a permanent operation which cannot be undone. Make a backup first."
+      operationId: "deleteAttachment"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "attachmentId"
+        in: path
+        description: "The id of the attachment you would like to delete"
+        required: true
+        type: string
+        format: uuid
+      responses:
+        200:
+          description: "successful operation, attachment deleted"
+          schema:
+            type: string
+        404:
+          description: "attachment not found"
+  /case/{caseId}/processStep:
+    x-swagger-router-controller: case.controller
+    get:
+      tags:
+      - "case"
+      summary: "process steps of a case"
+      description: "process steps of a case"
+      operationId: "processStep"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "caseId"
+        in: path
+        description: "The id of the case id you would like to have the comment"
+        required: true
+        type: string
+        format: uuid
+      - in: body
+        name: body
+        description: "parameters for adding comment to the case"
+        required: true
+        schema:
+          type: object
+          properties:
+              input:
+                type: string
+                description: "The data inputed by the user through the step"
+              inputType:
+                type: integer
+                description: "The step number to process"  
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: object
+            properties:
+              question:
+                type: string
+                description: "The process question"
+              questionType:
+                type: integer
+                description: "The type of question"
+        400:
+          description: "Invalid query data"
+  /dashboard/list:
+    x-swagger-router-controller: dashboard.controller
+    get:
+      tags:
+      - "dashboard"
+      summary: "Get a list of widgets, filtered and sorted"
+      description: "Get a list of widgets, filtered and sorted"
+      operationId: "listWidget"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Widget"
+        400:
+          description: "Invalid query data"
+          
+  /dashboard:
+    x-swagger-router-controller: dashboard.controller
+    post:
+      tags:
+      - "dashboard"
+      summary: "Add a new widget to the dashboard"
+      description: "Add a new widget to the dashboard"
+      operationId: "addWidget"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: "The widget object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Widget"
+      responses:
+        200:
+          description: "Tenant successfuly added"
+          schema:
+            type: object
+            properties:
+              tenantId:
+                type: string
+                format: uuid
+        400:
+          description: "The widget data posted was not valid"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Error"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/Error"
+        409:
+          description: "There is a user already matching that data"
+          schema:
+            $ref: "#/definitions/Error"
+  /dashboard/widgetType/list:
+    x-swagger-router-controller: dashboard.controller
+    get:
+      tags:
+      - "dashboard"
+      summary: "Get a list of permission types"
+      description: "Get a list of permissions types"
+      operationId: "listWidgetTypes"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/WidgetType"
+        400:
+          description: "Invalid query data"
+  /dashboard/{widgetId}:
+    x-swagger-router-controller: dashboard.controller
+    patch:
+      tags:
+      - "dashboard"
+      summary: "Update an existing widget's details in the dashboard"
+      description: "Updates the widget details"
+      operationId: "editWidget"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "widgetId"
+        in: path
+        description: "The id of the widget you would like to update"
+        required: true
+        type: string
+        format: uuid
+      - name: JsonPatch
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/PatchRequest"
+      responses:
+        200:
+          description: "Tenant successfuly updated"
+          schema:
+            type: string
+        404:
+          description: "Tenant not found"
+        405:
+          description: "Invalid input"  
+    delete:
+        tags:
+        - "dashboard"
+        summary: "Deletes existing widget from the dashboard"
+        description: "Deletes existing widget from the dashboard"
+        operationId: "deleteWidget"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "widgetId"
+          in: path
+          description: "The id of the widget you would like to delete"
+          required: true
+          type: string
+          format: uuid
+        responses:
+          200:
+            description: "successful operation, widget deleted"
+            schema:
+              type: string
+          404:
+            description: "Widget not found"        
+definitions:
+  BackupJob:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      tenantId:
+        type: string
+        format: uuid
+      dateTimeBackupStarted:
+        type: string
+        format: "date-time"
+      dateTimeBackupCompleted:
+        type: string
+        format: "date-time"
+      estimatedCompletionDateTime:        
+        type: string
+        format: "date-time"
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "in progress"
+        - "complete"
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    required:
+    - code
+    - message
+  Permission:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      permissionTypeId:
+        type: string
+        format: uuid
+      tenantId:
+        type: string
+        format: uuid
+      regionId:
+        type: string
+        format: uuid
+      siteId:
+        type: string
+        format: uuid
+  PermissionType  :
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string
+      tenantScope:
+        type: boolean
+        description: "Whether this permission can be granted with tenant scope"
+      regionScope:
+        type: boolean
+        description: "Whether this permission can be granted with region scope"
+      siteScope:
+        type: boolean
+        description: "Whether this permission can be granted with site scope"
+
+  PermissionListSortQuery:
+    type: object
+    properties:
+      sortBy:
+        type: array
+        items:
+          type: string
+          description: "Sort By"
+          enum:
+          - "name"
+          - "date created"
+      order:
+        type: string
+        description: "Sort Order"
+        enum:
+        - "ascending"
+        - "descending"
+  PermissionListFilterQuery:
+    type: object
+    properties:
+      userId:
+        type: string
+        format: uuid
+      keyword:
+        type: string
+        description: "perform a keyword search and only show those results with matches"
+  Tenant:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+        description: "Typically the trading name of the business, e.g. IKEA"
+      legalName:
+        type: string
+        description: "The legal name of the company, e.g. IKEA Pty Ltd"
+      email:
+        type: string
+        description: "Company Email e.g admin@ikea.com"
+      phone:
+        type: string
+        description: "Company phone number e.g. 0909090909"  
+      address:
+        type: string
+        description: "Company address e.g. Unit 149 block 45 " 
+      city:
+        type: string
+        description: "Company City e.g. Melbourne City" 
+      country:
+        type: string
+        description: "Company country e.g. Australia"    
+      databaseVersion:
+        type: string
+      databaseSizeBytes:
+        type: integer
+        format: int64
+      subdomain:
+        type: string
+      created:
+        type: string
+        format: date-time
+      lastModified:
+        type: string
+        format: date-time
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "active"
+        - "deactivated"
+      profilePic:
+        type: string
+        format : file
+  TenantListSortQuery:
+    type: object
+    properties:
+      sortBy:
+        type: array
+        items:
+          type: string
+          description: "Sort By"
+          enum:
+          - "tenant name"
+          - "date created"
+          - "status"
+      order:
+        type: string
+        description: "Sort Order"
+        enum:
+        - "ascending"
+        - "descending"
+  TenantListFilterQuery:
+    type: object
+    properties:
+      companyName:
+        type: string
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "active"
+        - "deactivated"
+      keyword:
+        type: string
+        description: "perform a keyword search and only show those results with matches"
+        
+  PatchRequest:
+    type: array
+    items:
+      $ref: "#/definitions/PatchDocument"
+  PatchDocument: 
+    description: A JSONPatch document as defined by RFC 6902 
+    required:
+     - "op"
+     - "path"
+    properties: 
+     op: 
+      type: string 
+      description: The operation to be performed 
+      enum:
+       - "add"
+       - "remove"
+       - "replace"
+       - "move"
+       - "copy"
+       - "test"
+     path: 
+      type: string 
+      description: A JSON-Pointer 
+     value: 
+      type: string 
+      description: The value to be used within the operations.
+     from: 
+      type: string 
+      description: A string containing a JSON Pointer value.
+  User:
+    type: object
+    required:
+    - "email"
+    - "ownership"
+    properties:
+      id:
+        type: string
+        format: uuid
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+        format: "email"
+      password:
+        type: string
+      phone:
+        type: string
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "active"
+        - "deactivated"
+      companyName:
+        type: string
+      profilePic:
+        type: string
+        format : file
+      roleId:
+        type: string
+        format: uuid
+      roleName:
+        type: string
+      ownership:
+        type: object
+        properties:
+          ownershipType:
+            type: string
+            description: "What type of object the user account is owned by"
+            enum:
+            - "monika"
+            - "none"
+            - "tenant"
+            - "region"
+            - "site"
+          tenantId:
+            type: string
+            format: uuid
+          tenantName:
+            type: string
+          regionId:
+            type: string
+            format: uuid
+          regionName:
+            type: string
+          siteId:
+            type: string
+            format: uuid
+          siteName:
+            type: string
+      created:
+        type: string
+        format: date-time
+      lastModified:
+        type: string
+        format: date-time
+  UserListSortQuery:
+    type: object
+    properties:
+      sortBy:
+        type: string
+        description: "Sort By"
+        enum:
+        - "tenant name"
+        - "region name"
+        - "site name"
+        - "role name"
+        - "company name"
+        - "date created"
+        - "first name"
+        - "last name"
+        - "full name"
+        - "email address"
+      order:
+        type: string
+        description: "Sort Order"
+        enum:
+        - "ascending"
+        - "descending"
+  UserListFilterQuery:
+    type: object
+    properties:
+      tenantId:
+        type: string
+        format: uuid
+      regionId:
+        type: string
+        format: uuid
+      siteId:
+        type: string
+        format: uuid
+      roleId:
+        type: string
+        format: uuid
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "active"
+        - "deactivated"
+      keyword:
+        type: string
+        description: "perform a keyword search and only show those results with matches"
+  User2faSettings:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      userId:
+        type: string
+        format: uuid
+      key:
+        type: string
+        format: password
+      status:
+        type: string
+        description: "2FA Status"
+        enum:
+        - "inactive"
+        - "active"
+  Case:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      region:
+        type: string
+        description: "Case Region/Site. e.g VIC Metro - 60 Elizabeth Street"
+      location:
+        type: string
+        description: "The Case location, e.g. Main Kitchen- Freezer"
+      description:
+        type: string
+        description: "The Case description e.g The product temperature is too high at 12:00"
+      created:
+        type: string
+        format: date-time  
+      unit:
+        type: string
+        description: "The unit of the case e.g. oven,freezer"
+      alarms:
+        type: object
+        properties:
+          alarmId:
+            type: string
+            format: uuid
+          alarmType:
+            type: string
+      resolution:
+        type: string
+        description: "The case resolution, e.g resolved,unresolved"
+      asignee: 
+        type: object
+        properties:
+          userId:
+            type: string
+            format: uuid
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "Data gathering"
+        - "Investigating"
+        - "Closed"
+  CaseListSortQuery:
+    type: object
+    properties:
+      sortBy:
+        type: string
+        description: "Sort By"
+        enum:
+        - "date created"
+        - "case description"
+        - "assignee"
+        - "status"
+        - "resolution"
+        - "region"
+        - "site"
+        - "priority"
+      order:
+        type: string
+        description: "Sort Order"
+        enum:
+        - "ascending"
+        - "descending"
+  CaseListFilterQuery:
+    type: object
+    properties:
+      caseId:
+        type: string
+        format: uuid
+      regionId:
+        type: string
+        format: uuid
+      siteId:
+        type: string
+        format: uuid
+      roleId:
+        type: string
+        format: uuid
+      status:
+        type: string
+        description: "Status"
+        enum:
+        - "active"
+        - "deactivated"
+      resolution:
+        type: string
+        description: "perform a keyword search and only show those results with matches"
+      priority:
+        type: string
+        description: "perform a keyword search and only show those results with matches" 
+  Attachment:
+    type: object
+    properties:
+      attachmentId:
+        type: string
+        format: uuid
+      attachment:
+        type: string
+        format: file
+  Comment:
+    type: object
+    properties:
+      commentId:
+        type: string
+        format: uuid
+      comment:
+        type: string
+        description: "comment"
+  Widget:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      title:
+        type: string
+        description: "The title of the widget, e.g. Task Completed to Schedule, Time in Alarm"
+      region:
+        type: string
+        description: "The region. e.g. Worcester College"
+      site:
+        type: string
+        description: "The site e.g. Victoria - ABC Cafe Melbourne"
+      time:
+        type: boolean
+        description: "The boolean which tell if the time will be visible in the widget"
+      legend:
+        type: boolean
+        description: "The boolean which tell if the legend will be visible in the widget"
+      color:
+        type: string
+        description: "The color of the widget"  
+      type:
+        type: string
+        description: "Status"
+        enum:
+        - "donut"
+        - "progress"
+        - "health"
+        - "icon2"
+        - "overview"
+        - "map"
+        - "gauge"
+        - "statistics"
+        - "bar"
+      data:
+        description: Can be anything.
+    required:
+    - data
+    - title
+    - region
+    - site
+    - color
+    - type
+  WidgetType:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string
+      tenantScope:
+        type: boolean
+        description: "Whether this widget can be used with tenant scope"
+      regionScope:
+        type: boolean
+        description: "Whether this widget can be used with region scope"
+      siteScope:
+        type: boolean
+        description: "Whether this widget can be used with site scope"    
+externalDocs:
+  description: "Find out more about Monika"
+  url: "http://www.monika.com"

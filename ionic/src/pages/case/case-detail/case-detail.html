@@ -1,0 +1,78 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      {{item.region_site}}
+    </ion-title>
+    <ion-buttons end> 
+
+    <button (click)="cancelCase()" clear> Cancel </button> 
+
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="gray" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="moon" src="../assets/imgs/image-place-holder@3x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="detail-box">
+      <ion-list no-lines>
+        <ion-item class="gray">
+            <img class="icon-case-details" src="../assets/imgs/shape@2x.png"/>
+            {{item.region}}
+        </ion-item>
+         <ion-item class="gray">
+            <img class="icon-case-details" src="../assets/imgs/shape.png"/>
+            {{item.location}}
+        </ion-item>
+         <ion-item class="gray">
+            <img class="icon-case-details" src="../assets/imgs/info.png"/>
+            {{item.description}}
+        </ion-item>
+        <ion-item class="gray">
+            <img class="icon-case-details" src="../assets/imgs/clock.png"/>
+            {{item.created}}
+        </ion-item>
+        <ion-item class="gray">
+            <img class="icon-case-details" src="../assets/imgs/info.png"/>
+            Status 
+            <ion-col class="right">{{item.status}}</ion-col>
+        </ion-item>
+         <ion-item class="gray" (click)="clickProcess()">
+            <img class="icon-case-details" src="../assets/imgs/star.png"/>
+            Smart Diagnostics
+            <img class="icon-case-details right icon" src="../assets/imgs/arrow-right.png"/>  
+            <ion-col class="right ">{{item.resolution}}</ion-col>
+        </ion-item>
+        <ion-item class="gray" (click)="clickUsers()">
+            <img class="icon-case-details" src="../assets/imgs/person.png"/>
+               Assigned
+            <img class="icon-case-details right icon" src="../assets/imgs/arrow-right.png"/>
+            <ion-col class="right ">Assign to user</ion-col>
+          </ion-item>
+          <ion-item class="gray" (click)="clickAttachment(item)">
+            <img class="icon-case-details" src="../assets/imgs/attachment-transparent.png"/>
+            Attachments
+            <img class="icon-case-details right icon" src="../assets/imgs/arrow-right.png"/>
+            <ion-col class="right ">Upload</ion-col>
+         </ion-item>
+         <ion-item class="gray" (click)="clickComment(item.region_site)">
+             <img class="icon-case-details" src="../assets/imgs/pencil.png"/>
+              Comment
+            <img class="icon-case-details right icon" src="../assets/imgs/arrow-right.png"/>  
+            <ion-col class="right ">Add Comment</ion-col>
+         </ion-item>
+         
+
+      </ion-list>
+  </div>
+</ion-content>
+
+

@@ -1,0 +1,178 @@
+page-case{
+
+  .case-setting{
+     background: #8C93C1;
+     padding: 20px;
+     height: 50px;
+     position: sticky;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 9999;
+
+  }
+
+  input.text-input.text-input-md {
+    margin-top: -29px;
+  }
+
+  h2 {
+    margin-top: -9px !important;
+  }
+
+  .item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end] {
+    margin: 9px -3px 9px 28px;
+  }
+
+  .border {
+    border-bottom: #ebecf2 solid 1px !important;
+  }
+
+  .notif {
+     padding-right: 20px;
+     margin-top: -50px;
+
+     img {
+       max-height: 46px;
+       max-width: 36px;
+    }
+  }
+
+  .item-md.item-block .item-inner {
+    padding-right: -6px !important;
+    border-bottom: 0px solid #dedede;
+    margin-left: -19px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  h2 {
+    font-size: 14px !important;
+  }
+
+  .case-setting ion-icon.icon.icon-md {
+     color: #FFFFFF;
+  }
+
+  .button-clear-md {
+    border-color: transparent;
+    color: #FFFFFF;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  ion-col .settings{
+    font-family: 'AvenirMedium';
+    color: #FFF;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 4px;
+    height: 5px;
+  }
+
+  ion-header{
+    padding: 0;
+    background-color: #212E84 !important;
+    ion-grid{
+      padding: 0 !important;
+      ion-row ion-col ion-title .toolbar-title{
+        font-size: 16px;
+        color: #FFF;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 4px;
+      }
+      ion-row ion-col button{
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: right;
+      }
+      ion-row ion-col button ion-icon{
+        color: #FFF;
+        font-size: 26px;
+      }
+      &.title-bar{
+        padding: 8px 16px !important;
+        ion-row ion-col .prev-arrow{
+          float: left;
+        }
+      }
+      &.settings-bar{
+        background: #8C93C1;
+        padding: 5px 16px !important;
+        ion-row ion-col h5{
+          font-family: 'AvenirMedium';
+          color: #FFF;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 4px;
+          height: 5px;
+
+        }
+        ion-row ion-col .settings{
+          font-family: 'AvenirMedium';
+          color: #FFF;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 4px;
+          height: 5px;
+
+        }
+      }
+    }
+  }
+
+  ion-content{
+    ion-card{
+      margin: 0 !important;
+      box-shadow: none !important;
+      border-bottom: 1px solid #D5DBFD;
+      width: 100% !important;
+      &:last-child{ border-bottom: none !important; }
+    }
+    ion-card ion-row ion-col p{
+      color: #212E84 !important;
+      font-size: 13px !important;
+      font-family: 'AvenirMedium';
+    }
+    ion-card ion-row ion-col button{
+      float: right;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: auto !important;
+    }
+    ion-card ion-row ion-col button ion-icon{
+      color: #415BFF;
+      font-size: 26px;
+    }
+  }
+
+  ion-footer{
+    background-color: #212E84 !important;
+    ion-grid ion-row ion-col{
+      background: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col button{ padding: 0 !important; }
+    ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+    ion-grid ion-row ion-col button .button-inner ion-icon{
+      font-size: 30px;
+      color: #8C93C1;
+      margin-bottom: 5px;
+    }
+    ion-grid ion-row ion-col button .button-inner span{
+      font-family: 'Avenir Next';
+      color: #8C93C1;
+      font-size: 15px;
+      display: block;
+      text-align: center;
+    }
+  }
+}

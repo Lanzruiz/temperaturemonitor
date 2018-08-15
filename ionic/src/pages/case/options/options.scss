@@ -1,0 +1,26 @@
+page-options {
+
+   .background {
+       background: #FFF !important;
+       height: 60px !important;
+       border-bottom: 1px solid #ebecf2;
+    } 
+
+    .item-md {
+       padding-left: 16px;
+       padding-right: 0;
+       position: relative;
+       font-size: 1.6rem;
+       font-weight: normal;
+       text-transform: none;
+       color: #000;
+       background-color: #fff;
+       -webkit-box-shadow: none;
+       box-shadow: none;
+       -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+       transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+       border-bottom: solid 0px;
+       border-bottom-color: #000000 !important;
+    }
+
+}

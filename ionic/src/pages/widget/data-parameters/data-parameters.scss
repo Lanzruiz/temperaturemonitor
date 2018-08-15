@@ -1,0 +1,70 @@
+page-data-parameters {
+	.bg {
+		background-color: #ebecf2;
+	}
+
+	.data-parameters {
+	    width: 70%;
+	    margin: auto;
+	    text-align: center;
+	    color: #212e84;
+	    border-radius: 20px;
+	    margin-top: 40px;
+	}
+
+	.param {
+	    margin: auto;
+		width : 80%;
+	}
+
+	ion-item.item.item-block.item-md {
+	    background: #ebecf2;
+	    padding-top: 6px;
+	    margin-top: 10px;
+	    border-radius: 6px;
+	}
+
+	.item-md.item-block .item-inner {
+    	margin-left: -25px;
+	}
+
+	.select-text {
+		color: #141e61;
+		font-size: 17px !important;
+	}
+
+	.ion-label.label.label-md {
+	    font-size: 2rem;
+	    margin-left: 15px !important;
+	}
+
+}
+
+.alert-md .alert-title {
+	    font-size: 18px !important;
+	    font-weight: 500;
+	    text-align: center;
+	    background-color: #fafafa;
+   		text-align: center;
+    	color: #222;
+}
+.alert-md .alert-radio-label {
+    color: #212e84;
+}
+
+.alert-md .alert-message {
+    text-align: center;
+    color : #222 !important;
+}
+
+.alert-md .alert-button-group {
+    justify-content: center;
+}
+
+.alert-md .alert-wrapper {
+    border-radius: 20px;
+}
+
+.alert-md .alert-button-group {
+    border-top: solid 1px #c8c7cc;
+}

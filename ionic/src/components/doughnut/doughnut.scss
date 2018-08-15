@@ -1,0 +1,465 @@
+doughnut {
+
+	width: 50%;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	hr {
+	  border: 0;
+	  clear:both;
+	  display:block;
+	  width: 100%;               
+	  height: 5px;
+	}
+
+	.legend {
+    float: right;
+    font-size: 5px !important;
+    margin-top: -108px;
+    margin-right: 8px;
+
+      p {
+        
+        font-size: 8px !important;
+        padding-top: 3px;
+        line-height: 7px;
+        margin-top: -9px;
+      }
+
+       
+
+       .box {
+          background-color: #eeeef0;
+          height: 10px !important;
+          width: 10px !important;
+          float: right;
+          margin-left: 5px;
+       }
+       
+
+    }
+
+    .label {
+       text-align: center;
+       max-bottom: 35%;
+       right: 20px;
+       /* margin-top: -17vw; */
+       font-size: 3vw !important;
+       /* margin: -69vw -22% 0 0; */
+       margin-top: -18vw !important;
+       position: relative;
+    }
+
+    canvas {
+    	margin-top: 30px;
+	    width: 100% !important;
+	    background-color:#FFFFFF;
+      margin-left: 0px !important;
+	    
+	}
+
+}
+
+
+/************************ IPAD ***************************/
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+
+  doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    canvas {
+      margin : auto;
+      width: 100% !important;
+      background-color:#FFFFFF;
+      margin-left: 0px !important;
+      
+    }
+
+    .label {
+      text-align: center;
+      max-bottom: 35%;
+      right: 20px;
+      margin-top: -15vw;
+      font-size: 3vw !important;
+    }
+
+  }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    canvas {
+      height: 100% !important;
+      width: 90% !important;
+      background-color:#FFFFFF;
+      margin-left: 20px !important;
+      
+    }
+
+    .label {
+      text-align: center;
+      max-bottom: 35%;
+      right: 20px;
+      margin-top: -12vw;
+      font-size: 3vw !important;
+    }
+
+  }
+}
+@media only screen and (min-width: 1300px) and (max-width: 1600px) {
+   doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    hr {
+      border: 0;
+      clear:both;
+      display:block;
+      width: 100%;               
+      height: 5px;
+    }
+
+    .legend {
+      float: right;
+      font-size: 5px !important;
+      margin-top: -58px;
+      margin-right: 8px;
+
+        p {
+          
+          font-size: 8px !important;
+          padding-top: 3px;
+          line-height: 7px;
+          margin-top: -9px;
+        }
+
+         
+
+         .box {
+            background-color: #eeeef0;
+            height: 10px !important;
+            width: 10px !important;
+            float: right;
+            margin-left: 5px;
+         }
+         
+
+      }
+
+      .label {
+         text-align: center;
+         max-bottom: 35%;
+         right: 20px;
+         /* margin-top: -17vw; */
+         font-size: 2.4vw !important;
+         /* margin: -69vw -22% 0 0; */
+         margin-top: -14vw !important;
+         position: relative;
+      }
+
+      canvas {
+        margin-top: 30px;
+        width: 100% !important;
+        background-color:#FFFFFF;
+        margin-left: 0px !important;
+        
+    }
+
+  }
+}  
+@media only screen and (min-width: 900px) and (max-width: 1300px) {
+   doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    hr {
+      border: 0;
+      clear:both;
+      display:block;
+      width: 100%;               
+      height: 5px;
+    }
+
+    .legend {
+      float: right;
+      font-size: 5px !important;
+      margin-top: -58px;
+      margin-right: 8px;
+
+        p {
+          
+          font-size: 8px !important;
+          padding-top: 3px;
+          line-height: 7px;
+          margin-top: -9px;
+        }
+
+         
+
+         .box {
+            background-color: #eeeef0;
+            height: 10px !important;
+            width: 10px !important;
+            float: right;
+            margin-left: 5px;
+         }
+         
+
+      }
+
+      .label {
+         text-align: center;
+         max-bottom: 35%;
+         right: 20px;
+         /* margin-top: -17vw; */
+         font-size: 3vw !important;
+         /* margin: -69vw -22% 0 0; */
+         margin-top: -15vw !important;
+         position: relative;
+      }
+
+      canvas {
+        margin-top: 30px;
+        width: 100% !important;
+        background-color:#FFFFFF;
+        margin-left: 0px !important;
+        
+    }
+
+  }
+}  
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+   doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    hr {
+      border: 0;
+      clear:both;
+      display:block;
+      width: 100%;               
+      height: 5px;
+    }
+
+    .legend {
+      float: right;
+      font-size: 5px !important;
+      margin-top: -58px;
+      margin-right: 8px;
+
+        p {
+          
+          font-size: 8px !important;
+          padding-top: 3px;
+          line-height: 7px;
+          margin-top: -9px;
+        }
+
+         
+
+         .box {
+            background-color: #eeeef0;
+            height: 10px !important;
+            width: 10px !important;
+            float: right;
+            margin-left: 5px;
+         }
+         
+
+      }
+
+      .label {
+         text-align: center;
+         max-bottom: 35%;
+         right: 20px;
+         /* margin-top: -17vw; */
+         font-size: 3vw !important;
+         /* margin: -69vw -22% 0 0; */
+         margin-top: -15vw !important;
+         position: relative;
+      }
+
+      canvas {
+        margin-top: 30px;
+        width: 100% !important;
+        background-color:#FFFFFF;
+        margin-left: 0px !important;
+        
+    }
+
+  }
+}  
+
+@media only screen and (max-width: 500px) 
+  and (max-width: 700px) {
+
+  doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    hr {
+      border: 0;
+      clear:both;
+      display:block;
+      width: 100%;               
+      height: 5px;
+    }
+
+    .legend {
+      float: right;
+      font-size: 5px !important;
+      margin-top: -58px;
+      margin-right: 8px;
+
+        p {
+          
+          font-size: 8px !important;
+          padding-top: 3px;
+          line-height: 7px;
+          margin-top: -9px;
+        }
+
+         
+
+         .box {
+            background-color: #eeeef0;
+            height: 10px !important;
+            width: 10px !important;
+            float: right;
+            margin-left: 5px;
+         }
+         
+
+      }
+
+      .label {
+         text-align: center;
+         max-bottom: 35%;
+         right: 20px;
+         /* margin-top: -17vw; */
+         font-size: 3vw !important;
+         /* margin: -69vw -22% 0 0; */
+         margin-top: -17vw !important;
+         position: relative;
+      }
+
+      canvas {
+        margin-top: 30px;
+        width: 100% !important;
+        background-color:#FFFFFF;
+        margin-left: 0px !important;
+        
+    }
+
+  }
+
+}
+
+
+/**************************** IPHONX ****************/
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+  doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    canvas {
+      margin : auto;
+      width: 100% !important;
+      background-color:#FFFFFF;
+      margin-left: 0px !important;
+      
+    }
+
+    .label {
+      text-align: center;
+      max-bottom: 35%;
+      right: 20px;
+      margin-top: -18vw;
+      font-size: 3vw !important;
+    }
+
+    .legend {
+      float: right;
+      font-size: 1px !important;
+      margin-top: -57px;
+      margin-right: 11px;
+
+      p {
+        font-size: 5px !important;
+        padding-top: 1px;
+        line-height: 7px;
+        margin-top: 0px;
+      }
+    }
+
+  }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+  doughnut {
+
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    canvas {
+      margin : auto;
+      width: 100% !important;
+      background-color:#FFFFFF;
+      margin-left: 0px !important;
+      
+    }
+
+    .label {
+      text-align: center;
+      max-bottom: 35%;
+      right: 20px;
+      margin-top: -18vw;
+      font-size: 2vw !important;
+    }
+
+  }
+
+}

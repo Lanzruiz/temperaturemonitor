@@ -1,0 +1,23 @@
+<div class="component" (click)="onClick()">
+<hr [ngStyle]="{'background-color':params.color}">
+
+<div class="component-header"> 
+	{{params.title}}
+	<br>
+	<p class="subtitle">{{params.subtitle}}<p>
+</div>
+<div class="center">
+ 	<div class="unit-image">
+               <ion-icon name="image"></ion-icon>
+               <p class="unit-label">Air: 5</p>
+        </div>
+ 	<div class="unit-image">
+       <ion-icon name="image"></ion-icon>
+       <p class="unit-label">Food: 5</p>
+	</div>
+	 	<div class="unit-image">
+	       <ion-icon name="image"></ion-icon>
+	       <p class="unit-label">Door: Open</p>
+	</div>
+</div>
+</div>

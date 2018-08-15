@@ -1,0 +1,55 @@
+<!--
+  Generated template for the OwnerSecondPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<ion-navbar>
+    <ion-title id="title" class="title-margin-right"> User Account: Select Owner
+    </ion-title>
+    <ion-buttons left> 
+    	<button class="back-button bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md" (click)="dismiss()">
+	  	<span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon>
+	  		<span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md">
+	  		</span>
+	  	</span>
+	  	<div class="button-effect" style="transform: translate3d(-10px, -20px, 0px) scale(1); height: 64px; width: 64px; opacity: 0; transition: transform 273ms, opacity 191ms 82ms;"></div>
+	 	</button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="showSave" end> 
+
+    	<button (click)="saveClicked()" clear> Save </button> 
+
+  	</ion-buttons> 
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg" padding>
+	<div class="data-parameters"> 
+		<span>Please select the ownership for this account</span>
+	</div>
+	<div>
+		<ion-item>
+		  <ion-label>Tenant</ion-label>
+		  <ion-select [(ngModel)]="selectedTenant" (ionChange)="onParamChange();">
+		    <ion-option *ngFor="let tenant of tenants" [value]="tenant">{{tenant}}</ion-option>
+		  </ion-select>	
+		</ion-item >
+		<ion-item *ngIf="selected == 'region' || selected == 'site' " >
+		  <ion-label >Region</ion-label>
+		  <ion-select [(ngModel)]="selectedRegion" (ionChange)="onParamChange();" disabled="{{(!enableRegion)}}">
+		    <ion-option *ngFor="let region of regions" [value]="region">{{region}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+		<ion-item *ngIf="selected == 'site'" >
+		  <ion-label >Site</ion-label>
+		  <ion-select [(ngModel)]="selectedSite" (ionChange)="onParamChange();" disabled={{(!enableSite)}}>
+		    <ion-option *ngFor="let site of sites" [value]="site">{{site}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+	</div>
+</ion-content>

@@ -1,0 +1,25 @@
+<div class="component" (click)="onClick()">
+<hr [ngStyle]="{'background-color':params.color}">
+
+<div class="component-header"> 
+	{{params.title}}
+	<br>
+	<p class="subtitle">{{params.subtitle}}<p>
+</div>
+<div class="component-body">
+	<canvas #doughnutCanvas></canvas>
+	<p class="label" *ngIf="(params.data.length == 2)"[ngStyle]="{'color':params.color}">{{params.data[0]}}%</p>
+</div>
+<div class="legend" *ngIf="params.legend && colors">
+	       <p>In Alarm <span [ngStyle]="{'background-color':colors[0]}" class="box"></span></p>
+	       <p>Warning <span [ngStyle]="{'background-color':colors[1]}" class="box"></span></p>
+	       <p>OK <span [ngStyle]="{'background-color':colors[2]}" class="box"></span></p>
+</div>
+
+ <div class="component-footer">
+   <span class="region">{{params.region}}</span>
+   <br>
+   <span class="site">{{params.site}}</span>
+   <span class="time-span" *ngIf="params.time">Last 24 Hours</span>
+</div>
+</div>

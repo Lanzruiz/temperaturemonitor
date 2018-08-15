@@ -1,0 +1,123 @@
+<ion-header padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon class="ion-ios-arrow-back" (click)="onGoBack()"></ion-icon>
+      </ion-col><!-- ion-col -->
+      <ion-col col-8>
+        <ion-title>Edit Tenant</ion-title>
+      </ion-col><!-- ion-con -->
+      <ion-col col-2>
+        <a (click)="onSaveTenant()" title="Save Tenant">Save</a>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-header><!-- ion-header -->
+
+<ion-content>
+  <ion-grid class="profile">
+    <ion-row>
+      <ion-col col-3>
+        <ion-item no-lines>
+          <ion-avatar>
+            <img src="assets/imgs/blank-avatar.png" />
+          </ion-avatar>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-9>
+        <ion-item>
+          <ion-input type="text" value="NHS Trust"></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-input type="text" value="nhs@monikacloud.com"></ion-input>
+        </ion-item>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+
+  <ion-list class="info">
+    <ion-item no-lines>
+      <h4>Other Info</h4>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-input type="email" value="johndoe@domain.com"></ion-input>
+      <ion-icon item-left class="ion-email"></ion-icon>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-input type="tel" value="0800 130 3868"></ion-input>
+      <ion-icon item-left class="ion-ios-telephone"></ion-icon>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-textarea value="10 Brook Park Gaddesby Lane\nRearsby Leicester LE7 4ZB\nUnited Kingdom"></ion-textarea>
+      <ion-icon item-left class="ion-location"></ion-icon>
+    </ion-item><!-- ion-item -->
+  </ion-list><!-- ion-list -->
+
+  <ion-list class="features">
+    <ion-item no-lines>
+      <h4>Features</h4>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-icon item-left class="ion-android-bookmark"></ion-icon>
+      <ion-label>Bookmark</ion-label>
+      <ion-toggle item-right checked="false"></ion-toggle>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-icon item-left class="ion-ios-bell"></ion-icon>
+      <ion-label>Alarm</ion-label>
+      <ion-toggle item-right checked="false"></ion-toggle>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <ion-icon item-left class="ion-android-alert"></ion-icon>
+      <ion-label>Alert</ion-label>
+      <ion-toggle item-right checked="false"></ion-toggle>
+    </ion-item><!-- ion-item -->
+  </ion-list><!-- ion-list -->
+
+  <ion-list class="controls">
+    <ion-item no-lines>
+      <p item-left>Version</p>
+      <p item-right>KSDJALADJASK-EUJS</p>
+    </ion-item><!-- ion-item -->
+    <ion-item no-lines>
+      <button ion-button block>Deactivate</button>
+    </ion-item>
+  </ion-list>
+</ion-content><!-- ion-content -->
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-20>
+        <button ion-button block clear icon-center>
+          <ion-icon class="ion-grid"></ion-icon>
+          <span>Dashboard</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-person"></ion-icon>
+          <span>Profile</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-search"></ion-icon>
+          <span>Search</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-android-notifications-none"></ion-icon>
+          <span>Notification</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear menuToggle>
+          <ion-icon class="ion-navicon"></ion-icon>
+          <span>Menu</span>
+      </button>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-footer><!-- ion-footer -->

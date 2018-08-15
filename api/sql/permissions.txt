@@ -1,0 +1,35 @@
+Tenant Management,false,false
+Enterprise KPI visibility,true,false
+Enterprise Reporting,true,false
+Site Reporting for all sites,true,false
+Site Reporting,true,true
+Receive Escalated Non-Compliances for all sites,true,false
+Receive Escalated Non-Compliances,true,true
+Alert Management & Smart Diagnostics for all sites,true,false
+Alert Management & Smart Diagnostics,true,true
+Policy Setup for all Sites,true,false
+Policy Setup,true,true
+System Configuration & Hardware Setup for all sites,true,false
+System Configuration & Hardware Setup,true,true
+Site Definition for all sites,true,false
+Site Definition,true,true
+Site Configuration for all sites,true,false
+Site Configuration,true,true
+User management for all sites,true,false
+User management,true,true,
+Food Types Management for all sites,true,false
+Food Types Management,true,true
+Process Management for all sites,true,false
+Process Management,true,true
+Incident Recording for all sites,true,false
+Incident Recording,true,true
+Incident Management for all sites,true,false
+Incident Management,true,true
+Audit Inspections (survey creation) for all sites,true,false
+Audit Inspections (survey creation),true,true
+Audit Response (fill out survey) for all sites,true,false
+Audit Response (fill out survey),true,true
+Task Management for all sites,true,false
+Task Management,true,true
+Task Schedule Management for all sites,true,false
+Task Schedule Management,true,true

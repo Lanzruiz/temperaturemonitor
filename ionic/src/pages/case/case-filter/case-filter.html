@@ -1,0 +1,70 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Filter Case
+    </ion-title>
+    <ion-buttons end> 
+
+    <button id="applyBtn" (click)="clickStep2()" clear> Apply </button> 
+
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-list>
+  <button class="background" ion-item  (click)="openModal({id : 0})">
+    Region
+
+    <p item-end>
+       {{filter.region}}
+       <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+    </p>
+    
+  </button>  
+    <button class="background" ion-item  (click)="openModal({id: 1})">
+    Site
+    <p item-end>
+       {{filter.site}}
+       <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+     </p>
+  </button>  
+    <button class="background" ion-item  (click)="openModal({id: 2})">
+    Keyword
+    <p item-end>
+       {{filter.keyword}}
+       <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+    </p>
+  </button>  
+    <button class="background" ion-item  (click)="openModal({id : 3})">
+    Assignee
+    <p item-end>
+      {{filter.assignee}}
+      <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+    </p>
+  </button>  
+    <button class="background" ion-item  (click)="openModal({id : 4})">
+    Status
+    <p item-end>
+       {{filter.status}}
+       <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+    </p>
+  </button>  
+   <button class="background" ion-item  (click)="openModal({id : 5})">
+    Resolution
+     <p item-end>
+        {{filter.resolution}}
+        <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+     </p>
+  </button>  
+    <button class="background" ion-item  (click)="openModal({id : 6})">
+    Priority 
+    <p item-end>
+       {{filter.priority}}
+       <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+     </p>
+  </button>  
+</ion-list>
+    
+</ion-content>

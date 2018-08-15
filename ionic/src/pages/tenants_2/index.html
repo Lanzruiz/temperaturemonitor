@@ -1,0 +1,113 @@
+<ion-header padding-left padding-right>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-8 offset-2>
+        <ion-title>Monika - Tenants</ion-title>
+      </ion-col><!-- ion-col -->
+      <ion-col col-2>
+        <button ion-button clear (click)="onAddTenant()">
+          <ion-icon class="ion-android-add"></ion-icon>
+        </button>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item no-lines margin-bottom *ngFor="let member of members; let key = index;">
+      <ion-grid>
+        <ion-row class="details-item">
+          <ion-col>
+            <ion-card padding>
+              <ion-card-header ion-item>
+                <h3><ion-icon class="ion-record {{member.color}}"></ion-icon> {{ member.name }}</h3>
+                <button ion-button clear item-right (click)="showControls(key)">
+                  <ion-icon class="ion-more"></ion-icon>
+                </button>
+              </ion-card-header><!-- ion-card-header -->
+              <ion-card-content>
+                <ion-item no-lines class="email">
+                  <p>{{ member.email }}</p>
+                </ion-item><!-- ion-item -->
+                <ion-item no-lines class="version">
+                  <p><span>Version {{ member.version }}</span> <span>{{ member.size }}</span></p>
+                </ion-item><!-- ion-item -->
+              </ion-card-content><!-- ion-card-content -->
+            </ion-card><!-- ion-card -->
+          </ion-col><!-- ion-col -->
+        </ion-row>
+
+        <ion-row class="meta-item" *ngIf="shouldShowControls && listIndex == key">
+          <ion-col col-20 class="download-item">
+            <button ion-button block clear>
+              <ion-icon class="ion-ios-download-outline"></ion-icon>
+              <span>Download</span>
+            </button>
+          </ion-col><!-- ion-col -->
+          <ion-col col-20 class="backup-item">
+            <button ion-button block clear>
+              <ion-icon class="ion-ios-browsers"></ion-icon>
+              <span>Backup</span>
+            </button>
+          </ion-col><!-- ion-col -->
+          <ion-col col-20 class="edit-item" (click)="onEditTenant()">
+            <button ion-button block clear>
+              <ion-icon class="ion-more"></ion-icon>
+              <span>Edit</span>
+            </button>
+          </ion-col><!-- ion-col -->
+          <ion-col col-20 class="restore-item">
+            <button ion-button block clear>
+              <ion-icon class="ion-ios-flag"></ion-icon>
+              <span>Restore</span>
+            </button>
+          </ion-col><!-- ion-col -->
+          <ion-col col-20 class="delete-item">
+            <button ion-button block clear>
+              <ion-icon class="ion-ios-trash"></ion-icon>
+              <span>Delete</span>
+            </button>
+          </ion-col><!-- ion-col -->
+        </ion-row><!-- ion-row -->
+      </ion-grid><!-- ion-grid -->
+    </ion-item><!-- ion-item -->
+  </ion-list><!-- ion-list -->
+</ion-content><!-- ion-content -->
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-20>
+        <button ion-button block clear icon-center>
+          <ion-icon class="ion-grid"></ion-icon>
+          <span>Dashboard</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-person"></ion-icon>
+          <span>Profile</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-search"></ion-icon>
+          <span>Search</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-android-notifications-none"></ion-icon>
+          <span>Notification</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear menuToggle>
+          <ion-icon class="ion-navicon"></ion-icon>
+          <span>Menu</span>
+      </button>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-footer><!-- ion-footer -->

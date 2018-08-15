@@ -1,0 +1,62 @@
+<!--
+  Generated template for the DataParametersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	
+    <ion-title>{{name}}</ion-title>
+    
+    <ion-buttons *ngIf="showDone" end> 
+
+    	<button (click)="doneClicked()" clear> Done </button> 
+
+  	</ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg" padding>
+	<div class="data-parameters"> 
+		<span>Please fill the Data Parameters</span>
+	</div>
+	<div class="param">
+		<template *ngFor="let item of items">
+			{{item}}
+		    <template *ngFor="let test of item.tenant">
+		    	
+		    </template>   	
+		</template>
+		<!--
+		<ion-item>
+		  <ion-label>Region</ion-label>
+		  <ion-select [(ngModel)]="selectedRegion" (ionChange)="onRegionChange();">
+		    <ion-option *ngFor="let region of regions" [value]="region">{{region}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+		<ion-item>
+		  <ion-label>Site</ion-label>
+		  <ion-select [(ngModel)]="selectedSite" (ionChange)="onSiteChange();">
+		    <ion-option *ngFor="let site of sites" [value]="site">{{site}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+		<ion-item>
+		  <ion-label>Unit</ion-label>
+		  <ion-select [(ngModel)]="selectedUnit" (ionChange)="onUnitChange();">
+		    <ion-option *ngFor="let unit of units" [value]="unit">{{unit}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+		<ion-item>
+		  <ion-label>Color</ion-label>
+		  <ion-select [(ngModel)]="selectedColor" (ionChange)="onColorChange();">
+		    <ion-option *ngFor="let color of colors" [value]="color">{{color}}</ion-option>
+		  </ion-select>	
+		</ion-item>
+		!-->
+	</div>
+
+</ion-content>

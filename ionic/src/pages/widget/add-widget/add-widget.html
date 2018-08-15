@@ -1,0 +1,81 @@
+<!--
+  Generated template for the AddWidgetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Widgets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="font-size" class="gray">
+
+	<ion-list>
+		<button ion-item (click)="selectWidget({name:item.name, data: item.dataParameters})"  *ngFor="let item of currentItems">
+			 {{item.name}}
+			<template *ngFor="let name of item.dataParameters; let g = index">
+		         {{item.name}}
+		         <input type="hidden" id="{{name.tenant.required}}">
+		         <img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		    </template>
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<!--
+		<button ion-item  (click)="selectWidget({id: 0 , label : 'Tasks Completed to Schedule'})">
+			Tasks Completed to Schedule
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>  
+		<button ion-item  (click)="selectWidget({id : 1 , label : 'Tasks Completed to Schedule Breakdown'})">
+			Tasks Completed to Schedule Breakdown
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 2 , label : 'Time in Alarm'})">
+			Time in Alarm
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 3 , label : 'Time in Alarm Breakdown'})">
+			Time in Alarm Breakdown
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 4 , label : 'Hand Probing - Samples probed vs required'})">
+			Hand Probing - Samples probed vs required
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 5 , label : 'Hand Probing - Samples probed vs required Today'})">
+			Hand Probing - Samples probed vs required Today
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 6 , label : 'Tasks - Todays Progress'})">
+			Tasks - Today's Progress
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 7 , label : 'Health - Binary threshold'})">
+			Health - Binary threshold
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 8 , label : 'Health - Percentage'})">
+			Health - Percentage
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 9 , label : 'Unit Sensor - Current Reading'})">
+			Unit Sensor - Current Reading
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 10 , label : 'Unit - Current'})">
+			Unit - Current
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		<button ion-item  (click)="selectWidget({id : 11 , label : 'Live Monitoring Overview'})">
+			Unit - Current
+			<img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+		</button>
+		!-->
+	</ion-list>
+    
+
+</ion-content>

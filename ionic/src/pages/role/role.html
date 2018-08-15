@@ -1,0 +1,58 @@
+<!--
+  Generated template for the Menuv2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Roles List
+    </ion-title>
+    <ion-buttons end> 
+    <button class="btn-active" (click)="addClicked()"clear>
+      <ion-icon name="add"></ion-icon>
+    </button> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="padding-top-50">
+
+
+  <ion-grid>
+    <ion-row class="background" *ngFor="let item of items">
+    
+      <ion-col>
+        <ion-avatar item-start>
+          <span class="{{item.color}}-dot"></span>
+        </ion-avatar>
+        <h2 class="left">{{item.name}}</h2>
+        
+        
+      </ion-col>
+      <ion-col>  
+
+
+        <ion-icon class="more-icon" ios="ios-more" id="{{item.name}}" md="ios-more" ion-item (click)="moreDisplay(item.name)"></ion-icon>
+
+        <ion-item id="{{item.name}}" class="w3-container w3-hide menu">
+          
+            <div class="menu-role-delete"  (click)="deleteClick()">
+               <ion-icon class="trash" ios="ios-trash" md="ios-trash-outline"></ion-icon>
+               <p class="label">Delete</p>
+            </div>
+          <div class="menu-role-edit">
+              <ion-icon class="edit" ios="ios-more" md="ios-more-outline"></ion-icon>
+              <p class="label">Edit</p>
+          </div>
+       </ion-item>
+        
+      </ion-col>
+   
+    
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

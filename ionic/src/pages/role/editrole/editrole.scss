@@ -1,0 +1,47 @@
+page-editrole {
+
+   .body {
+      margin-top: 30px;
+    }
+
+   .margin {
+	
+	  margin-left: 20px !important;
+	  margin-bottom: 7px !important;
+	  padding-top: 10px;
+   }
+
+   .label {
+      margin-left: -30px !important;
+   }
+
+   .other-info-title {
+	color: #212E84 !important;
+	text-align: left;
+	margin-top: 100px !important;
+    }
+	.details {
+		color: #212E84 !important;
+		font-size: 1.5em;
+	}
+	.edit {
+	   position: absolute;
+	   right: 3px;
+	   top: 12px;
+	}
+	.display-block {
+	    text-align: left;
+	    margin-left: 20px;
+		display:block;
+		color: #212E84 !important;
+		padding-top: 8px;
+	}
+
+	ion-label.left.label.label-md {
+       margin-left: -2px !important;
+    }
+
+	
+
+
+}

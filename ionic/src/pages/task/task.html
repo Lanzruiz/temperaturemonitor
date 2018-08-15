@@ -1,0 +1,286 @@
+<!--
+  Generated template for the TaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        Monika - Dashboard
+    </ion-title>
+    <ion-buttons end> 
+    <button class="btn-active" (click)="addClicked()"clear>
+    	<ion-icon name="add"></ion-icon>
+    </button> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="gray">
+
+	
+	<ion-row id="settings" class="widget-setting" style="display: none">
+    <ion-col text-left>
+        <button class="settings-button" ion-button icon-only (click)="removeClicked()" clear>
+          <ion-icon name="trash"></ion-icon>
+            Remove
+        </button>
+    </ion-col>
+    <ion-col text-right>
+        <button class="settings-button" ion-button icon-only (click)="editClicked()" clear>
+          <ion-icon name="hammer"></ion-icon>
+            Edit
+        </button>
+    </ion-col>
+  </ion-row>
+
+<div class="row">
+  <div #processContainer></div>
+</div>
+   <!--  <ion-grid>
+        <ion-row>
+		    <ion-col>
+		       <ion-item class="widget border-top-violet full-width">
+                    <div class="header">
+                  	    <h4 class="title">Time in Alarm Breakdown</h4>
+		    	        <h5>Cold Room Freezer</h5>
+		   	        </div>
+			       <canvas #doughnutCanvas></canvas>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+					        <div class="legend">
+					   	       <p>In Alarm <span class="alarm-color">..</span></p>
+					   	       <p>Warning <span class="warning-color">..</span></p>
+					   	       <p>OK <span class="ok-color">..</span></p>
+					        </div>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+		    </ion-col>
+		    <ion-col>
+
+
+		       <ion-item class="widget border-top-violet full-width">
+                    <div class="header">
+                  	    <h4 class="title">Time in Alarm Breakdown</h4>
+		    	        <h5>Cold Room Freezer</h5>
+		   	        </div>
+			        <canvas #doughnutCanvas2>dff</canvas>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>All Sites</h5></span>
+					        <div class="legend">
+					   	       <p>In Alarm <span class="alarm-color">..</span></p>
+					   	       <p>Warning <span class="warning-color">..</span></p>
+					   	       <p>OK <span class="ok-color">..</span></p>
+					        </div>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+
+		    </ion-col>
+        </ion-row>
+       
+
+          <ion-row>
+        	<ion-col>
+        		<ion-item class="widget border-top-blue full-width">
+                    <div class="header">
+                  	    <h4 class="title">Task - Today's Progress - Percentage</h4>
+                  	    <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+		   	        </div>
+			        <canvas #doughnutCanvas3></canvas>
+			        <p class="percent font-color-blue" id="percent"></p>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+					        
+				        </div>
+		   	        </div>
+		       </ion-item>
+        	</ion-col>
+        </ion-row>
+
+        <ion-row>
+		    <ion-col>
+		       <ion-item class="widget border-top-blue full-width">
+                    <div class="header">
+                  	    <h4 class="title">Tasks Completed to Schedule Breakdown</h4>
+		   	        </div>
+			       <canvas #doughnutCanvas4></canvas>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+					        <div class="legend">
+					   	       <p>On Time <span class="light-blue-color">..</span></p>
+					   	       <p>Late <span class="blue-color">..</span></p>
+					   	       <p>Not Done <span class="ok-color">..</span></p>
+					        </div>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+		    </ion-col>
+		    <ion-col>
+
+
+		       <ion-item class="widget border-top-blue full-width">
+                    <div class="header">
+                  	    <h4 class="title">Tasks Completed to Schedule Breakdown</h4>
+		   	        </div>
+			        <canvas #doughnutCanvas5>dff</canvas>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>All Sites</h5></span>
+					        <div class="legend">
+					   	       <p>On Time <span class="light-blue-color">..</span></p>
+					   	       <p>Late <span class="blue-color">..</span></p>
+					   	       <p>Not Done <span class="ok-color">..</span></p>
+					        </div>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+
+		    </ion-col>
+        </ion-row>
+
+        <ion-row>
+		    <ion-col>
+		       <ion-item class="widget border-top-violet full-width">
+                    <div class="header">
+                  	    <h4 class="title">Time in Alarm</h4>
+		    	        <h5>Cold Room Freezer</h5>
+		   	        </div>
+			       <canvas #doughnutCanvas6></canvas>
+			        <p class="percent font-color-violet" id="percent6"></p>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+		    </ion-col>
+		    <ion-col>
+
+
+		       <ion-item class="widget border-top-violet full-width">
+                    <div class="header">
+                  	    <h4 class="title">Time in Alarm</h4>
+		    	        <h5>Cold Room Freezer</h5>
+		   	        </div>
+			        <canvas #doughnutCanvas7></canvas>
+			         <p class="percent font-color-violet" id="percent7"></p>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>All Sites</h5></span>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+
+		    </ion-col>
+        </ion-row>
+
+
+         <ion-row>
+        	<ion-col>
+        		<ion-item class="widget border-top-green full-width">
+                    <div class="header">
+                  	    <h4 class="title">Time in Alarm Breakdown</h4>
+                  	    <h5>Worcester College - England</h5>
+		   	        </div>
+			        <div  class="margin-top-30px" style="width: 100%"><iframe width="100%" height="200" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(Monika)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe></div><br />
+			       <div class="footer">
+		    	        
+		    	        <div class="light-green-color left"></div> <p class="left small-label-8px">Site with No Alarms</p>
+		    	        <div class="red-color left"></div> <p class="left small-label-8px">Site with No Alarms</p>
+		    	        
+		   	        </div>
+		       </ion-item>
+        	</ion-col>
+        </ion-row>
+
+        <ion-row>
+        	<ion-col>
+        		<ion-item class="widget border-top-nion1 full-width">
+                    <div class="header">
+                  	    <h4 class="title">Unit Senso - Current Reading - Meter</h4>
+                  	    <span class="site"><h5>Cold Room Freezer</h5></span>
+		   	        </div>
+		
+			       <canvas id="foo"></canvas>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>Victoria - ABC Cafe Melbourne</h5></span>
+					        
+				        </div>
+		   	        </div>
+		       </ion-item>
+        	</ion-col>
+        </ion-row>
+
+       <ion-row>
+		    <ion-col>
+		       <ion-item class="widget border-top-light-green2 full-width">
+                    <div class="header">
+                  	    <h4 class="title">Tasks Completed to Schedule Breakdown</h4>
+		   	        </div>
+			        <div id="hours"></div>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>All Sites</h5></span>
+					        
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+
+		    </ion-col>
+        </ion-row>
+     
+        <ion-row>
+		    <ion-col>
+		       <progressbar [progress]="loadProgress"></progressbar>	
+		    </ion-col>
+		    <ion-col (click)="widgetClicked(6)" >
+		      <health [status]="healthStatus"></health>
+		    </ion-col>
+        </ion-row>
+   </ion-grid> -->
+     <!--  <ion-row>
+        	<ion-col>
+        		<ion-item class="widget border-top-pink full-width">
+                    <div class="header">
+                  	    <h4 class="title">Hand Probing - Samples Probed</h4>
+                  	    <span class="site"><h5>vs Required</h5></span>
+		   	        </div>
+			        <canvas #doughnutCanvas3></canvas>
+			        <p class="percent font-color-pink" id="percent"></p>
+			       <div class="footer">
+		    	        <ion-row><h4 class="title">Worcester College</h4></ion-row>
+		    	        <div class= "sites-time">
+					        <span class="site"><h5>All Sites</h5></span>
+					        <span class="time-span"><h5>Last 24 Hours</h5></span>
+				        </div>
+		   	        </div>
+		       </ion-item>
+        	</ion-col>
+        </ion-row> -->
+</ion-content>

@@ -1,0 +1,44 @@
+
+
+<ion-content class="master login-content blue" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="logo" src="../assets/imgs/logo@2x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+     <form (submit)="doLogin()">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-icon ios="icon-user ios-contact" md="md-contact"></ion-icon>
+            <ion-item class="top-radius">
+             
+              
+              <ion-input placeholder="Email" name="username" id="loginField" type="text" required [(ngModel)]="username" #email></ion-input>
+            </ion-item>
+            <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+            <ion-item class="bottom-radius">
+              
+              <ion-input placeholder="Password" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button class="submit-btn" ion-button color="primary" block>Log In</button>
+         
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <!--<ion-label (click)="clicked()">Create new profile</ion-label> !-->
+      </ion-row>  
+      
+    </form>
+  </div>
+</ion-content>

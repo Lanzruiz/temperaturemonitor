@@ -1,0 +1,45 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Case
+    </ion-title>
+    <ion-buttons end> 
+    <button (click)="clickStep5()" clear> Next </button> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="gray" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="moon" src="../assets/imgs/image-place-holder@3x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-label class="bold font-size-5vw">Product Temperature too High</ion-label>
+    </ion-col>
+  </ion-row>
+  <div class="detail-box-step4">
+      <ion-row no-lines>
+        <ion-col>
+          <ion-label class="bold">Smart Diagnostic</ion-label>
+          <ion-item text-wrap class="process-details center">
+Please choose some corrective actions
+applicable on this case below.</ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button class="submit-btn margin-top-150px" ion-button color="primary" block>{{situation}}</button>
+         
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>
+
+

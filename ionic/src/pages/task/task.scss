@@ -1,0 +1,194 @@
+h2 {
+   font-size: 3.0vh;
+}
+
+.full-width {
+	min-width: 330px;
+}
+
+page-task {
+
+	col {
+		background-color:#FFFFFF;
+	    border-left-style: solid;
+    	border-left-color: #FFF;
+
+		
+	}
+
+	.header {
+			background-color :#FFFFFF;
+		    margin-bottom: -10px;
+	}
+
+	.footer {
+		background-color :#FFFFFF;
+	}
+
+	.float-right {
+	   float:right !important;
+	}
+
+		
+	.icon-case-details {
+	  width: 1em;
+	  margin-right: 1em;
+	}
+
+    
+	.time-span {
+		float: right
+	}
+
+	.site {
+		float: left
+	}
+
+	.sites-time{
+	    height: 20px;
+	}
+
+	.region {
+	    float: left;
+	    text-align: left;
+	    font-weight: bold;
+	}
+
+	.component-header {
+		text-align: left;
+	    color: #141e61;
+	    font-size: 17px;
+	    margin-left: 10px;
+	    height: 15%;
+	}
+
+	.component-body {
+	    width: 100%;
+	    margin: auto;
+	    text-align: center;
+	    color: #fff;
+	    height: 70%;
+	}
+
+    .component-footer {
+       position: relative;
+       bottom: 34px;
+       left: 16px;
+       width: 90%;
+       height: 15%;
+       font-size: 2.1vw;
+    }
+
+
+	.center {
+		margin: auto;
+	    width: 50%;
+	    margin-top: 10px !important;
+	}
+
+
+	.component {
+		height: 100%;
+		width: 100%;
+		background-color: #FFF;
+	}
+
+
+    .widget-setting {
+	  background: #7982b5;
+	  padding: 20px;
+	  height: 50px;
+	  position: sticky;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 9999;
+	}
+
+    #hours {
+       font-size: 90px;
+       color: #91e522;
+       text-align: center;
+       padding-top: 20px;
+       padding-bottom: 20px;
+    }
+
+	.settings-button {
+	    border-color: transparent;
+	    background-color: transparent;
+	    color: #FFF;
+	    width: 100%;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    opacity: 1;
+	}
+
+	* {
+    box-sizing: border-box;
+	}
+
+	.row {
+	    display: flex;
+	}
+
+	/* Create two equal columns that sits next to each other */
+	.column {
+	    flex: 50%;
+	    padding: 10px;
+	    height: 300px; /* Should be removed. Only for demonstration */
+	}
+
+	.subtitle {
+		font-size: 10px;
+		margin-top: 0 !important;
+		font-weight: 200 !important;
+		font-size: 14px !important;
+		margin-left: 0px !important;
+		margin-top: 0px !important;
+		line-height: 15px !important;
+	}
+
+	canvas.chartjs-render-monitor {
+       /* margin: 0px; */
+       margin-left: -11px;
+       margin-bottom: 10px;
+    }
+
+    /************************ IPAD ***************************/
+	/* Portrait and Landscape */
+    @media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) { 
+
+        .component {
+            height: 182px;
+            width: 100%;
+            padding-bottom: 12px;
+            background-color: #FFF;
+        } 
+	  
+        .component-header {
+           text-align: left;
+           color: rgb(20, 30, 97);
+           font-size: 3vw !important;
+           margin-left: 10px;
+           height: 15%;
+        }
+
+        .component-footer {
+	       position: relative;
+           bottom: 3vw;
+           left: 16px;
+           width: 90%;
+           height: 15%;
+           font-size: 2vw;
+	   
+    	}
+
+	}  
+
+
+}
+
+

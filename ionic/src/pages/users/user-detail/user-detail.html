@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar>
+   <!--  <ion-title> {{(isEditOperation)?'Tenant Profile':'Create Tenants'}}</ion-title> -->
+   <ion-title>  {{(isEditOperation)?'Edit User':'Create User'}} </ion-title>
+   <ion-buttons *ngIf="isReadyToSave && !isEditOperation" end> 
+
+    <button (click)="createUser()"  clear> Save </button> 
+
+  </ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form" >
+    <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+    <div class="profile-header" >
+      <div class="profile-image-placeholder" (click)="getPicture()" *ngIf="!this.form.controls.profilePic.value">
+        <p class="add-image-label">add photo</p>
+      </div>
+       <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value" (click)="getPicture()"></div>
+
+       
+      <div class = "create-header-inputs">
+        <ion-input (focusout)="onBlur('fullname')" value="{{(isEditOperation)?data.fullname:''}}"  type="text"  class="user-name" placeholder="Full Name" formControlName="fullname"></ion-input>
+        <ion-input (focusout)="onBlur('roleName')" value="{{(isEditOperation)?data.roleName:''}}"  type="text" placeholder="Role/Position" formControlName="roleName" ></ion-input>
+      </div>
+     
+    </div>
+    <ion-list>
+      <ion-label class="label">Email</ion-label>
+      <ion-item class ="user-input">
+        <ion-input (focusout)="onBlur('email')" value="{{(isEditOperation)?data.email:''}}" type="email"  formControlName="email"></ion-input>
+      </ion-item>
+      <ion-label class="label">Password</ion-label>
+      <ion-item class ="user-input">    
+        <ion-input (focusout)="onBlur('password')" value="{{(isEditOperation)?data.password:''}}"  type="text" type="password"  formControlName="password"></ion-input>
+      </ion-item>
+      <ion-label  *ngIf="!isEditOperation"  class="label">Retype Password</ion-label>
+      <ion-item *ngIf="!isEditOperation" class ="user-input">
+        <ion-input (focusout)="onBlur('repassword')"  type="text" type="password"  formControlName="repassword"></ion-input>
+      </ion-item>
+       <ion-label class="label">Company</ion-label>
+       <ion-item class ="user-input">
+        <ion-input (focusout)="onBlur('company')" value="{{(isEditOperation)?data.company:''}}"  type="text"  formControlName="company"></ion-input>
+      </ion-item>
+       <ion-label class="label">Mobile/Phone</ion-label>
+       <ion-item class ="user-input">
+        <ion-input (focusout)="onBlur('mobile')" value="{{(isEditOperation)?data.mobile:''}}"  type="text"  formControlName="mobile"></ion-input>
+      </ion-item>
+		  <ion-item-sliding class="permission-bg" (click)="presentOwnerModal()">
+		    <button class="user-button" ion-item>
+				 Ownership
+	             <img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+	             <h5 class="value-label">{{ownerText}}</h5>
+			</button>  
+	  	</ion-item-sliding>
+	  	<ion-item-sliding class="permission-bg" (click)="addPermission()">
+		    <button class="user-button" ion-item>
+				 Permission
+	             <img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+	             <h5 class="value-label">{{permission}}</h5>
+			</button>  
+	  	</ion-item-sliding>  
+    </ion-list>
+
+  </form>
+</ion-content>

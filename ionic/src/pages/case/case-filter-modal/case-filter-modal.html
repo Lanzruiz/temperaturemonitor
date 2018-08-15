@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Filter Cases : {{caseName}}
+    </ion-title>
+    <ion-buttons left> 
+    	<button class="back-button bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md" (click)="dismiss()">
+	  	<span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon>
+	  		<span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md">
+	  		</span>
+	  	</span>
+	  	<div class="button-effect" style="transform: translate3d(-10px, -20px, 0px) scale(1); height: 64px; width: 64px; opacity: 0; transition: transform 273ms, opacity 191ms 82ms;"></div>
+	 	</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="gray">
+ <ion-list radio-group>
+   <ion-item-sliding class="background">
+    <ion-item *ngFor="let item of caseItems">
+	    <ion-label item-start class="label">{{item.label}}</ion-label>
+	    <ion-checkbox class="align-right"></ion-checkbox>
+        
+  	</ion-item>
+  </ion-item-sliding> 
+</ion-list>
+    
+</ion-content>

@@ -1,0 +1,36 @@
+
+
+<ion-content class="master regsuccess-content" padding>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+  <div class="login-box">
+      <form (submit)="doProceed()">
+    
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-label>Success!</ion-label>
+          </ion-list>
+          <ion-list>
+            <ion-label class="paragraph">Your profile has been successfully <br/>
+                 created. Please proceed on the user<br/>
+                 profile to complete some of the<br/>
+                 information we need. 
+            </ion-label>
+          </ion-list>
+          
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col margin-top-40">
+          <button class="submit-btn" ion-button color="primary" block>Done</button>
+         
+        </ion-col>
+      </ion-row>
+      
+      
+    </form>
+  </div>
+</ion-content>

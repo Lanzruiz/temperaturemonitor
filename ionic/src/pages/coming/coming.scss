@@ -1,0 +1,96 @@
+page-login {
+}
+
+
+.login-content {
+
+   background-color: #212E84;
+
+    ion-icon.icon.icon-md.ion-md-contact {
+      position: absolute;
+      z-index: 9000;
+      left: 13px;
+      margin-top: 16px;
+      color: #212e84;
+
+    }
+
+    .label-white {
+    color: #FFF !important;
+    }
+
+    ion-label {
+
+       color: #FFFFFF;
+       font-size: 20px;
+       margin-top: 50px;
+    }
+
+    ion-icon.icon.icon-md.ion-md-lock {
+      position: absolute;
+      z-index: 9000;
+      left: 13px;
+      margin-top: 15px;
+      color: #212e84;
+    }
+    .logo {
+      width: 20em;
+    }
+ 
+    .logo-row {
+      padding-top: 150px;
+      padding-bottom: 20px;
+    }
+ 
+    .login-box {
+      
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+    }
+    .top-radius {
+      
+      border-top-left-radius: 10px !important;
+      border-top-right-radius: 10px !important;
+    }
+    .bottom-radius {
+      
+      border-bottom-left-radius: 10px !important;
+      border-bottom-right-radius: 10px !important;
+    }
+ 
+    ion-row {
+       align-items: center;
+       text-align: center;
+     }
+ 
+     ion-item {
+         border-radius-top: 30px !important;
+         padding-left: 30px !important;
+         font-size: 0.9em;
+         margin-bottom: 1px;
+         border: 1px solid #ffffff;
+         border-bottom: 0px !important;
+         box-shadow: none !important;
+     }
+ 
+     .signup-col {
+       margin: 0px 16px 0px 16px;;
+     }
+ 
+     .item-inner {
+       border-bottom-color: #ffffff !important;
+       box-shadow: none !important;
+     }
+ 
+     .submit-btn {
+       background: #ec0086;
+       border-radius: 5px !important;
+       padding: 25px 0 25px 0;
+       margin-top: -13px;
+     }
+ 
+     .register-btn {
+       color: #ffffff;
+       font-size: 0.8em;
+     }
+  }

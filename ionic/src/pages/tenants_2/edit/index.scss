@@ -1,0 +1,120 @@
+page-edit-tenant{
+
+  ion-header{
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    ion-grid{ padding: 0 !important; }
+    ion-grid ion-row ion-col{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col{
+      ion-icon{ font-size: 24px; }
+      ion-title .toolbar-title{
+        font-size: 17px;
+        font-weight: 400;
+        color: #FFF;
+      }
+      .ion-ios-arrow-back{ color: #FFF; }
+      &:last-child{
+        a{
+          font-size: 17px;
+          color: #CACACA;
+          float: right;
+        }
+      }
+    }
+  }
+
+  ion-content{
+    background-color: #212E84 !important;
+    .scroll-content{ background: #F8F9FF; }
+    .profile{
+      ion-row ion-col ion-item ion-avatar{
+        max-width: 55px;
+        max-height: 50px;
+        margin-top: 5px;
+        img{
+          width: 55px;
+          height: 50px;
+        }
+      }
+    }
+
+    .info{
+      ion-item{
+        border-bottom: 1px solid #CACACA !important;
+        padding: 7px 16px !important;
+        &:last-child{ border-bottom: 0 !important; }
+      }
+      ion-item ion-icon{ color: #CACACA; }
+      ion-item ion-input input{
+        font-size: 15px;
+        color: #000;
+      }
+      ion-item ion-textarea textarea{
+        height: 100px;
+        line-height: 26px;
+        font-size: 15px;
+      }
+    }
+
+    .features{
+      ion-item{
+        border-bottom: 1px solid #CACACA !important;
+        padding: 7px 16px !important;
+      }
+      ion-item ion-icon{ color: #CACACA; }
+      ion-item ion-label{
+        font-size: 15px;
+        color: #000;
+        font-weight: 400;
+      }
+      ion-item ion-toggle{
+        &.toggle-checked .toggle-icon{ background-color:  #999; }
+      }
+    }
+
+    .controls{
+      ion-item{
+        &:last-child{ margin-top: 70px; }
+      }
+      ion-item p{
+        color: #000;
+        font-size: 17px;
+      }
+      ion-item button{
+        background: #FF3426;
+        font-size: 21px !important;
+        padding: 35px 0 !important;
+        border-radius: 10px;
+        &.activated{ background-color: #CACACA; }
+      }
+    }
+
+  }
+
+  ion-footer{
+    background-color: #212E84 !important;
+    ion-grid ion-row ion-col{
+      background: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col button{ padding: 0 !important; }
+    ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+    ion-grid ion-row ion-col button .button-inner ion-icon{
+      font-size: 30px;
+      color: #8C93C1;
+      margin-bottom: 5px;
+    }
+    ion-grid ion-row ion-col button .button-inner span{
+      font-family: 'Avenir Next';
+      color: #8C93C1;
+      font-size: 15px;
+      display: block;
+      text-align: center;
+    }
+  }
+
+}

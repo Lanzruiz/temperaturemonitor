@@ -1,0 +1,34 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Case List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="padding-top-50">
+  <ion-row class="case-setting">
+        <ion-col text-left class="blue-search">
+           <ion-icon ios="ios-search" md="md-search"></ion-icon>
+           <ion-input placeholder="Search for Cases" name="users" id="users" type="text"></ion-input>
+        </ion-col>
+        <ion-col col-auto>
+            <button ion-button icon-only (click)="sortClick()" clear>
+               <ion-icon name="options"></ion-icon>
+            </button>
+        </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item class="border" *ngFor="let item of currentItems">
+        <div class="notif" item-left><img  class="notif" src="../assets/imgs/alarm-1.png"/></div>
+      <button ion-item (click)="caseClick(item)" no-lines>
+        <h2>{{item.region}}</h2>
+        <h2>{{item.location}}</h2>
+        <h2>{{item.description}}</h2>
+       <!--  <h2>{{item.asignee}}</h2>  -->
+        <h2>John Gamble</h2>
+      </button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

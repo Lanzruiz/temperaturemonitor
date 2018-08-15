@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Choose Scope
+    </ion-title>
+    <ion-buttons end> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="gray">
+   <ion-list inset class="user-info-assign">
+       <ion-item ion-item *ngFor="let item of items" class="border-bottom">
+          <ion-checkbox margin-right class="top"></ion-checkbox>
+            <ion-label>
+              
+                 <p class="name">{{ item.name }}</p>
+          
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,45 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Case
+    </ion-title>
+    <ion-buttons end> 
+    <button (click)="clickStep()" clear> Next </button> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="gray" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="moon" src="../assets/imgs/image-place-holder@3x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-label class="bold font-size-5vw">Product Temperature too High</ion-label>
+    </ion-col>
+  </ion-row>
+  <div class="detail-box-step5">
+      <ion-row no-lines>
+        <ion-col>
+          <ion-label class="bold">Smart Diagnostic</ion-label>
+          <ion-item text-wrap class="process-details center"> How many times per hour 
+is the door being opened?"
+         </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <ion-input name="interval" class="curve10" type="text" required></ion-input>
+         
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>
+
+

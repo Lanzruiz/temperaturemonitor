@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Options</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="gray">
+    <ion-list>
+		<ion-item-sliding class="background" (click)="clickSort()">
+		    <button ion-item>
+				 Sort
+	             <img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+			</button>  
+	  	</ion-item-sliding>
+	  	<ion-item-sliding class="background" (click)="clickFilter()">
+		    <button ion-item>
+				 Filter
+	             <img class="icon-case-details right" src="../assets/imgs/transparent-arrow-right.png"/> 
+			</button>  
+	  	</ion-item-sliding>  
+	</ion-list>
+</ion-content>

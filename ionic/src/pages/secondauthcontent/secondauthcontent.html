@@ -1,0 +1,45 @@
+<!--
+  Generated template for the SecondauthcontentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="master secondauth-content" padding>
+ 
+  <div class="login-box">
+     <form (submit)="doSignup()">
+    
+      <ion-row>
+        <ion-col>
+           <img class="qr" src="../assets/imgs/qr-code@2x.png"/>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      	 <ion-input type="text" class="code" placeholder="Number" name="password"></ion-input>
+      	 <button class="submit-btn copy" ion-button color="primary" block>Copy</button>
+      </ion-row>
+      <ion-row>
+      	    <ion-label class="reminders"l>For security you are required to setup <br/>
+      	    	Two Factors Authentication for your account.
+            </ion-label>
+
+      </ion-row>
+      <ion-row>
+      	    <ion-label class="procedures">1. Please download Authy, Google Authenticator, <br/> Windows Phone Authenticator, Duo, or a compatible<br/>2FA Token Generation App.
+            </ion-label>
+
+      </ion-row>
+      <ion-row>
+      	    <ion-label class="procedures">2. Please scan the QR code below or copy the hey <br/> and paste it into your 2FA app.
+            </ion-label>
+   
+      </ion-row>
+
+      
+      
+      
+      
+    </form>
+  </div>
+</ion-content>

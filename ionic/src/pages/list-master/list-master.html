@@ -1,0 +1,75 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>List Tenants</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="padding-top-50 gray">
+  <ion-row class="case-setting">
+        <ion-col text-left class="blue-search">
+           <ion-icon ios="ios-search" md="md-search"></ion-icon>
+           <ion-input placeholder="Search for Tenants" name="users" id="users" type="text"></ion-input>
+        </ion-col>
+        <ion-col col-auto>
+            <button ion-button icon-only (click)="displayOption()" clear>
+               <ion-icon name="options"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+
+  <ion-list>
+    <ion-item-sliding class="margin-item" *ngFor="let item of currentItems">
+    
+      <ion-item >
+        <ion-avatar item-start>
+          <img class="{{item.color}}-dot" src="{{item.profilePic}}">
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>{{item.subdomain}}</p>
+        <p class="font-size-15px">Version 3.0.1555 32mb</p>
+        <ion-icon ios="ios-more" md="ios-more" ion-item (click)="moreDisplay(item.name)"></ion-icon>
+        
+        
+      </ion-item>
+       <ion-item id="{{item.name}}" class="w3-container w3-hide menu">
+          
+            <div class="menu-delete"  (click)="deleteTenant(item.id)">
+               <ion-icon class="trash" ios="ios-trash" md="ios-trash-outline"></ion-icon>
+               <p class="label">Delete</p>
+            </div>
+          
+          <div class="menu-download">
+             <ion-icon class="download" ios="ios-download" md="ios-download-outline"></ion-icon>
+             <p class="label">Download</p>
+          </div>
+          <div class="menu-backup">
+             <ion-icon class="backup" ios="ios-filing" md="ios-filing-outline"></ion-icon>
+             <p class="label">Backup</p>
+          </div>
+           <div class="menu-restore">
+             <ion-icon class="restore" ios="ios-refresh" md="ios-refresh-outline"></ion-icon>
+             <p class="label">Restore</p>
+          </div>
+          <div class="menu-status" (click)="activateTenant(item)">
+              <ion-icon class="status" ios="ios-power" md="ios-power-outline"></ion-icon>
+               <p class="label">{{(item.status == 'active' ? 'Deactivate' : 'Activate')}}</p>
+          </div>
+          <div class="menu-edit" (click) = "editItem(item)">
+              <ion-icon class="edit" ios="ios-more" md="ios-more-outline"></ion-icon>
+              <p class="label">Edit</p>
+          </div>
+       </ion-item>
+    
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

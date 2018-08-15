@@ -1,0 +1,27 @@
+<div class="component" (click)="onClick()">
+<hr [ngStyle]="{'background-color':params.color}">
+
+<div class="component-header"> 
+	{{params.title}}
+</div>
+<div class="component-body">
+	<div class="rectangle">
+		<div class="left">
+			<div [ngStyle]="{'background-color':params.color}" [style.height]="params.data[0] + 'mm'" class="bar1" >
+				<p class="bar-label">{{params.data[0]}}</p>
+		 	</div>
+		</div>
+		<div class="right">
+			<div [ngStyle]="{'background-color':params.color}" [style.height]="params.data[1] + 'mm'"  class="bar2" > 
+				<p class="bar-label">{{params.data[1]}}</p>
+			</div>
+		</div>
+	</div>	
+</div>
+ <div class="component-footer">
+   <span class="region">{{params.region}}</span>
+   <br>
+   <span class="site">{{params.site}}</span>
+   <span class="time-span" *ngIf="params.time">Last 24 Hours</span>
+</div>
+</div>

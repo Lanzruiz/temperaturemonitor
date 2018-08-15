@@ -1,0 +1,530 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+@font-face {
+    font-family: 'Avenir Next';
+    src: url('../assets/fonts/AvenirNext-Regular.eot');
+    src: url('../assets/fotns/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/AvenirNext-Regular.woff2') format('woff2'),
+        url('../assets/fonts/AvenirNext-Regular.woff') format('woff'),
+        url('../assets/fonts/AvenirNext-Regular.ttf') format('truetype'),
+        url('../assets/fonts/AvenirNext-Regular.svg#AvenirNext-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Demi';
+    src: url('../assets/fonts/AvenirNext-DemiBold.eot');
+    src: url('../assets/fonts/AvenirNext-DemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/AvenirNext-DemiBold.woff2') format('woff2'),
+        url('../assets/fonts/AvenirNext-DemiBold.woff') format('woff'),
+        url('../assets/fonts/AvenirNext-DemiBold.ttf') format('truetype'),
+        url('../assets/fonts/AvenirNext-DemiBold.svg#AvenirNext-DemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url('../assets/fonts/AvenirMedium.eot');
+    src: url('../assets/fonts/AvenirMedium.eot') format('embedded-opentype'),
+         url('../assets/fonts/AvenirMedium.woff2') format('woff2'),
+         url('../assets/fonts/AvenirMedium.woff') format('woff'),
+         url('../assets/fonts/AvenirMedium.ttf') format('truetype'),
+         url('../assets/fonts/AvenirMedium.svg#AvenirMedium') format('svg');
+}
+
+.text-input-md {
+    margin: 13px 8px;
+    padding: 0;
+    width: calc(100% - 8px - 8px);
+    height: 40px;
+}
+
+.text-input {
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 92%;
+    width: calc(100% - 10px);
+    border: 0;
+    background: transparent;
+    height: 40px !important;
+}
+
+text-input:focus {outline:none;}
+
+//////////// widget ///////////
+
+.toolbar-background-md {
+    border-color: #f4f4f4;
+    background: #212E84 !important;
+    font-size: co;
+    /* color: #FFF !important; */
+}
+
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+.very-specific-design {
+  width: 600px;
+  height: 400px;
+  padding: 50px;
+  text-align: center;
+  background: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.scaleable-wrapper {
+  padding: 20px;
+  resize: both;
+  position: relative;
+  background: #666;
+  height: 400px;
+}
+
+.ui-resizable-se {
+  width: 10px;
+  height: 10px;
+  background: orange;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bigred {
+  color: red;
+  font-size: 5rem;
+}
+.border-top-violet {
+   border-top: 6px solid #9546e6 !important;
+}
+
+.border-top-blue {
+   border-top: 6px solid #225afc !important;
+}
+
+.border-top-green {
+   border-top: 6px solid #57bb26 !important;
+}
+
+.border-top-nion1 {
+  
+   border-top: 6px solid #00dce8 !important;
+}
+
+.border-top-light-green2 {
+   border-top: 6px solid #91e522 !important;
+}
+
+.border-top-pink {
+  border-top: 6px solid #f1007b !important;
+}
+
+.border-top-gray {
+  border-top: 1px solid #edeef3 !important;
+}
+.resize-drag {
+  background-color: #29e;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 20px;
+
+  width: 120px;
+
+  /* This makes things *much* easier */
+  box-sizing: border-box;
+}
+
+.right {
+     float:right !important;
+}
+.left {
+  float:left !important;
+  text-align: left;
+}
+
+.resize-container {
+  display: inline-block;
+  width: 100%;
+  height: 240px;
+}
+.widget {
+
+  background: #424d92;
+  padding-top: 20px !important;
+  pading-left: 0px;
+  padding-right: 0px;
+  resize: both;
+  overflow: auto; 
+
+  .title {
+    
+    margin-top: 8px !important;
+    font-size: 12pt !important;
+    margin-bottom: 7px;
+     
+  }
+
+  .small-label-8px {
+    font-size: 8px !important;
+    margin-left: 4px;
+    margin-top: 4px;
+  }
+
+  .left {
+     float:left;
+     margin-right: 10px;
+  }
+
+  .right {
+     float:right;
+  }
+
+  .alarm-color {
+    background-color: #9546e6;
+    height: 10px !important;
+    width: 10px !important;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .warning-color {
+    background-color: #641dad;
+    height: 10px !important;
+    width: 10px !important;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .red-color {
+    background-color: #ff0009;
+    height: 10px !important;
+    width: 10px !important;
+    color: #40fc59;
+  }
+
+  .blue-color {
+    background-color: #2a77cf;
+    height: 10px !important;
+    width: 10px !important;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .light-blue-color {
+    background-color: #4a90e2;
+    height: 10px !important;
+    width: 10px !important;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .light-green-color {
+   
+    background-color: #40fc59;
+    height: 10px !important;
+    width: 10px !important;
+    color: #40fc59;
+
+  }
+
+  .percent {
+
+    margin-top: -94px;
+    width: 16% !important;
+    height: 30% !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 60px;
+    font-size: 88% !important;
+  
+  }
+   
+   .situation{
+      text-align: center;
+      font-size: 8pt !important;
+   }
+}
+
+/////////// widget ////////////
+
+
+ion-row {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+}
+
+.logo-row {
+    padding-top: 150px;
+    padding-bottom: 40px !important;
+    background: white;
+}
+
+//radio button disable
+ion-radio.radio.radio-md {
+       display: none;
+}
+
+
+ion-item .button-inner {
+    border-bottom: none !important;
+    font-size: 2rem;
+}
+
+.select-md .select-icon {
+    position: relative;
+    display:none;
+}
+
+
+// margin bottom for the list
+
+ion-list.list.list-md {
+    width: 100%;
+    margin-bottom: 75px;
+}
+
+ion-label.label.label-md {
+    font-size: 17px !important;
+    margin-left: 10px !important;
+}
+
+.avatar  {
+  width: 3em !important;
+  margin-right: 1em;
+  border-radius: 30px;
+}
+
+// moon icon
+
+.moon {
+    width: 12em !important;
+    height: 12em !important;
+    padding: 0px !important;
+    margin-top: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+//// fonts
+
+.bold {
+   font-weight: bold;
+}
+
+.center {
+  width: auto !important;
+  height: auto !important;
+  text-align: center;
+  background-color: #e5e5ee !important;
+  margin: 0 auto;
+  margin-top: 5px !important;
+}
+
+.btn-inactive {
+    color: #212E84;
+}
+
+
+.font-size-2vw {
+    font-size: 2vw !important;
+}
+
+.font-size-4vw {
+    font-size: 4vw !important;
+}
+
+.font-size-5vw {
+    font-size: 5vw !important;
+}
+
+.font-color-violet {
+   color: #9546e5 !important;
+}
+
+.font-color-blue {
+   color: #225bfc !important;
+}
+
+.font-color-pink {
+   color: #f1007b !important;
+}
+
+ion-label.bold.font-size-5vw.label.label-md {
+    font-size: 6vw !important;
+}
+
+/////  buttons
+
+.submit-btn {
+    background: #ec0086;
+    border-radius: 5px !important;
+    padding: 25px 0 25px 0;
+    margin-top: 53px;
+    position: fixed;
+    left: calc(-15vw + 20%);
+    right: calc(-10vw + 20%);
+    width: 90%;
+}
+
+.option-button-container {
+    
+    margin: 0px 1px 0px 1px;
+
+    .button-top {
+       width: 93%;
+       background: white;
+       border-top-right-radius: 8px !important;
+       border-top-left-radius: 8px !important;
+       padding: 20px 0 20px 0;
+       margin-top: 14px;
+       color: #212e84;
+       font-size: 16px;
+    }
+
+    .button-bottom {
+       width: 93%;
+       background: white;
+       border-bottom-right-radius: 8px !important;
+       border-bottom-left-radius: 8px !important;
+       padding: 20px 0 20px 0;
+       margin-top: 1px;
+       color: #212e84;
+       font-size: 16px;
+    }
+}
+
+// margin top
+
+.margin-top-10px {
+    margin-top:10px !important;
+}
+
+.margin-top-20px {
+    margin-top:20px !important;
+}
+
+.margin-top-30px {
+    margin-top:30px !important;
+}
+
+.margin-top-40px {
+    margin-top:40px !important;
+}
+
+.margin-top-50px {
+    margin-top:50px !important;
+}
+
+.margin-top-60px {
+    margin-top: 60px !important;
+}
+
+.margin-top-70px {
+    margin-top: 70px !important;
+}
+
+.margin-top-90px {
+    margin-top: 90px !important;
+}
+
+.margin-top-150px {
+    margin-top: 10% !important;
+}
+// items
+
+ion-item.item.item-block.item-md {
+    background: white !important;
+    padding-top: 6px;
+    border: none;
+}
+
+/////////////////////// designs ////////////////////
+ 
+ ////// input
+
+ .curve10 {
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    text-align: center !important;
+ } 
+
+ /// color background
+ .gray{
+   background: #ebecf2 !important;
+ }
+
+ ion-item.gray.item.item-block.item-md {
+   background: #ebecf2 !important;
+ }
+ 
+ .blue{
+   background: #212E84 !important;
+ }
+
+
+// search box
+
+.blue-search {
+  border-radius: 20px;
+  background: #50588d;
+  height: 30px;
+  padding-left: 15px;
+  padding-top: 7px;
+  
+  input {
+    float: left;
+    margin-top: -17px;
+    margin-left: 26px;
+  }
+}
+
+
+.checkbox-md .checkbox-icon {
+   
+    border-radius: 30px;
+}

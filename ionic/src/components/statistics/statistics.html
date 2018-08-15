@@ -1,0 +1,19 @@
+<div class="component" (click)="onClick()">
+<hr [ngStyle]="{'background-color':params.color}">
+
+<div class="component-header"> 
+	{{params.title}}
+</div>
+<div class="component-body">
+	<div class="stats" [ngStyle]="{'color':params.color}">
+		{{params.data}}
+	</div>
+</div>
+
+ <div class="component-footer">
+   <span class="region">{{params.region}}</span>
+   <br>
+   <span class="site">{{params.site}}</span>
+   <span class="time-span" *ngIf="params.time">Last 24 Hours</span>
+</div>
+</div>

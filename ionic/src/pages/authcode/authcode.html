@@ -1,0 +1,45 @@
+
+
+<ion-content class="master auth-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="logo" src="../assets/imgs/logo@2x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+  </ion-row>
+  <ion-row class="text-left">
+    <ion-label>Enter 2FA Code</ion-label>
+  </ion-row>  
+  <div class="login-box">
+     <form (submit)="doConfirm()">
+      
+      <ion-row>
+        
+        <ion-col>
+          <ion-list inset>
+            <ion-item class="top-radius-5 bottom-radius-5">
+               <ion-input type="email" name="email" placeholder="Enter your code"></ion-input>
+            </ion-item>            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button class="submit-btn" ion-button color="primary" block>Confirm</button>
+         
+        </ion-col>
+      </ion-row>
+      <ion-row>
+         <ion-col>
+          <ion-radio value="" checked="true"></ion-radio> 
+          <ion-label>Remember this device for 30 days.</ion-label>
+         </ion-col>
+         
+      </ion-row>
+     
+      
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the OwnerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ <ion-navbar>
+    <ion-title  id="title"  class="title-margin-right"> User Account: Select Owner
+    </ion-title>
+    <ion-buttons left> 
+    	<button class="back-button bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md" (click)="dismiss()">
+	  	<span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon>
+	  		<span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md">
+	  		</span>
+	  	</span>
+	  	<div class="button-effect" style="transform: translate3d(-10px, -20px, 0px) scale(1); height: 64px; width: 64px; opacity: 0; transition: transform 273ms, opacity 191ms 82ms;"></div>
+	 	</button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="showSave" end> 
+
+    	<button (click)="saveClicked()" clear> Save </button> 
+
+  	</ion-buttons> 
+
+  </ion-navbar>
+</ion-header>
+<ion-content class="margin-top-owner bgcolor-gray">
+
+	<ion-list radio-group [(ngModel)]="currOwner">
+		<button class="background" ion-item  (click)="setParameters('tenant')">
+			Tenant
+			<p item-end>
+			   <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+			</p>
+		</button> 
+		<button class="background" ion-item  (click)="setParameters('region')">
+			Region        
+			<p item-end>
+			   <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+			</p>
+		</button>  
+		<button class="background" ion-item  (click)="setParameters('site')">
+			Site
+			<p item-end>
+			   <img class="icon-case-details right margin-left" src="../assets/imgs/transparent-arrow-right.png"/>
+			</p>
+		</button>  
+		<ion-item class="border">
+			    <ion-label >Monika</ion-label>
+			    <ion-radio (ionSelect)="radioChecked()" class="align-right" value="monika"></ion-radio>
+		</ion-item>
+		<ion-item class="border">
+			    <ion-label >None</ion-label>
+			    <ion-radio (ionSelect)="radioChecked()" class="align-right" value="none"></ion-radio>
+		</ion-item>	 
+	</ion-list>
+
+
+
+</ion-content>

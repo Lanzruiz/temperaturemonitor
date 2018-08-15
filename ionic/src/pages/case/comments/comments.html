@@ -1,0 +1,148 @@
+<!--
+  Generated template for the CommentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{site}}</ion-title>
+     <ion-buttons end> 
+    	<button ion-button (click)="upload()" id="save">
+		</button>
+  	</ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="comment-content">
+	<ion-list>
+		<ion-row>
+		    <ion-label>Today</ion-label>
+		</ion-row> 
+		<ion-grid class="comment-box">
+				
+			<ion-row>
+				<ion-col>
+		            <img class="photo" src="../assets/imgs/images.jpeg"/>
+		            <ion-label class="info">User 1 <br/> <span class="size">business@monika.com</span></ion-label>
+		            <ion-icon class="more" ios="ios-more" md="ios-more">
+		            	<ion-select [(ngModel)]="comment" interface="popover">
+					        <ion-option value="f">Edit Comment</ion-option>
+					        <ion-option value="m">Delete Comment</ion-option>
+					    </ion-select>
+		            </ion-icon>
+		        </ion-col>
+		       
+			</ion-row>
+			<ion-row class="text">
+				It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+
+			</ion-row>
+			<ion-row class="date">March 28, 2018 at 7:21PM</ion-row>
+	    </ion-grid>
+    </ion-list>
+    <ion-list>
+		<ion-row>
+		    <ion-label>2 Weeks Ago</ion-label>
+		</ion-row> 
+		<ion-grid class="comment-box">
+				
+			<ion-row>
+				<ion-col>
+		            <img class="photo" src="../assets/imgs/images.jpeg"/>
+		            <ion-label class="info">User 1 <br/> <span class="size">business@monika.com</span></ion-label>
+		            <ion-icon class="more" ios="ios-more" md="ios-more">
+		            	<ion-select [(ngModel)]="comment" interface="popover">
+					        <ion-option value="f">Edit Comment</ion-option>
+					        <ion-option value="m">Delete Comment</ion-option>
+					    </ion-select>
+		            </ion-icon>
+		        </ion-col>
+		       
+			</ion-row>
+			<ion-row class="text">
+				It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+
+			</ion-row>
+			<ion-row class="date">March 28, 2018 at 7:21PM</ion-row>
+	    </ion-grid>
+	    <ion-grid class="comment-box">
+				
+			<ion-row>
+				<ion-col>
+		            <img class="photo" src="../assets/imgs/images.jpeg"/>
+		            <ion-label class="info">User 1 <br/> <span class="size">business@monika.com</span></ion-label>
+		            <ion-icon class="more" ios="ios-more" md="ios-more">
+		            	<ion-select class="comment-menu" [(ngModel)]="comment" interface="popover">
+					        <ion-option value="f">Edit Comment</ion-option>
+					        <ion-option value="m">Delete Comment</ion-option>
+					    </ion-select>
+		            </ion-icon>
+		        </ion-col>
+		       
+			</ion-row>
+			<ion-row class="text">
+				<ion-col class="attachment">
+					 <img class="icon" src="../assets/imgs/file-icon.png"/>
+					 Sourcefile.docs
+				</ion-col>
+
+			</ion-row>
+			<ion-row class="date">March 28, 2018 at 7:21PM</ion-row>
+	    </ion-grid>
+	    <ion-grid class="comment-box">
+				
+			<ion-row>
+				<ion-col>
+		            <img class="photo" src="../assets/imgs/images.jpeg"/>
+		            <ion-label class="info">User 1 <br/> <span class="size">business@monika.com</span></ion-label>
+		            <ion-icon class="more" ios="ios-more" md="ios-more">
+		            	<ion-select [(ngModel)]="comment" interface="popover">
+					        <ion-option value="f">Edit Comment</ion-option>
+					        <ion-option value="m">Delete Comment</ion-option>
+					    </ion-select>
+		            </ion-icon>
+		        </ion-col>
+		       
+			</ion-row>
+			<ion-row class="text">
+				The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+
+			</ion-row>
+			<ion-row class="date">March 28, 2018 at 7:21PM</ion-row>
+	    </ion-grid>
+    </ion-list>
+    <ion-row id="commentcontainer" class="commenttextarea">
+    	<img (click)="upload()" class="attachment-icon" id="attachment-icon" src="../assets/imgs/attachment.png"/>
+    	<div id="textarea-container">
+    	    <div id="text" class="margin" (click)="expandComment()">Write your Comment</div>
+        </div>
+    	<ion-icon class="send" ios="ios-send" md="md-send"></ion-icon>
+    </ion-row>
+    <ion-row id="uploadid" class="upload-menu">
+    	<div class="menu" (click)="attachImage()">
+               <ion-icon name="image"></ion-icon>
+               <p class="menu-label">Image</p>
+        </div>
+        <div class="menu">
+               <ion-icon name="copy"></ion-icon>
+               <p class="menu-label">PDF</p>
+        </div>
+        <div class="menu">
+               <ion-icon name="document"></ion-icon>
+               <p class="menu-label">Docs</p>
+        </div>
+		<div class="menu">
+               <ion-icon name="play"></ion-icon>
+               <p class="menu-label">Video</p>
+        </div>
+        <div class="menu" (click)="clickCamera()">
+               <ion-icon name="camera"></ion-icon>
+               <p class="menu-label">Camera</p>
+        </div>
+    </ion-row>
+
+</ion-content>

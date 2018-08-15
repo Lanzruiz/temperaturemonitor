@@ -1,0 +1,155 @@
+<ion-header padding-left padding-right>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon class="ion-ios-arrow-back" (click)="onGoBack()"></ion-icon>
+      </ion-col><!-- ion-col -->
+      <ion-col col-8>
+        <ion-title>Add Tenant</ion-title>
+      </ion-col><!-- ion-col -->
+      <ion-col col-2 class="add">
+        <a (click)="saveTenant()">Save</a>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-header><!-- ion-header -->
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="content-header">
+      <ion-col col-2>
+        <ion-item>
+          <ion-avatar>
+            <span>NT</span>
+          </ion-avatar>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-8>
+        <p>Company Name</p>
+        <p>Email</p>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+
+    <ion-row class="content-form">
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Company Legal Name</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" name="company" ngModel required #company="ngModel"></ion-input>
+          <ion-icon item-right  class="ion-ios-medical-outline"></ion-icon>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Tenant Sub domain</ion-label>
+        </ion-item><!-- ion-item -->
+        <ion-item>
+          <ion-input type="text" name="company" ngModel required #company="ngModel"></ion-input>
+          <ion-icon item-right class="ion-location"></ion-icon>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Email</ion-label>
+        </ion-item><!-- ion-item -->
+        <ion-item>
+          <ion-input type="email"></ion-input>
+          <ion-icon item-right class="ion-ios-email-outline"></ion-icon>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Phone</ion-label>
+        </ion-item><!-- ion-item -->
+        <ion-item>
+          <ion-input type="tel"></ion-input>
+          <ion-icon item-right class="ion-ios-telephone-outline"></ion-icon>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Address</ion-label>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-textarea type="tel"></ion-textarea>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+
+    <ion-row padding-left padding-right class="content-features">
+      <ion-col col-12>
+        <ion-item no-lines>
+          <ion-label>Feature 1</ion-label>
+          <ion-toggle checked="false"></ion-toggle>
+        </ion-item>
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item no-lines>
+          <ion-label>Feature 2</ion-label>
+          <ion-toggle checked="false"></ion-toggle>
+        </ion-item>
+      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-item no-lines>
+          <ion-label>Feature 3</ion-label>
+          <ion-toggle checked="false"></ion-toggle>
+        </ion-item>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+
+    <ion-row padding-left padding-right class="content-version">
+      <ion-col col-4>
+        <p>Version</p>
+      </ion-col><!-- ion-col -->
+      <ion-col col-8>
+        <p>KSDJALADJASK-EUJS</p>
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+
+    <ion-row padding-left padding-right class="content-footer">
+      <ion-col col-12>
+        <ion-item>
+          <button padding ion-button block (click)="openStatusBox()">Select Status</button>
+        </ion-item><!-- ion-item -->
+      </ion-col><!-- ion-col -->
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-content><!-- ion-content -->
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-20>
+        <button ion-button block clear icon-center>
+          <ion-icon class="ion-grid"></ion-icon>
+          <span>Dashboard</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-person"></ion-icon>
+          <span>Profile</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-search"></ion-icon>
+          <span>Search</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-android-notifications-none"></ion-icon>
+          <span>Notification</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear menuToggle>
+          <ion-icon class="ion-navicon"></ion-icon>
+          <span>Menu</span>
+      </button>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-footer><!-- ion-footer -->

@@ -1,0 +1,28 @@
+page-case-filter {
+	
+	.background {
+       background: #FFF !important;
+       height: 60px !important;
+       border-bottom: 1px solid #ebecf2;
+    } 
+
+    button.background.item.item-block.item-md {
+       border-bottom: 1px solid #ebecf2 !important;
+    }
+
+    #applybtn {
+      visibility: hidden;
+    }
+
+    
+}
+p {
+    font-weight: 430;
+    color: #a9adc3 !important;
+    font-size: 1.5rem !important;
+
+}
+
+.margin-left {
+	margin-left: 30px !important;
+}

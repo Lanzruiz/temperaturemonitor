@@ -1,0 +1,96 @@
+page-users {
+
+  input.text-input.text-input-md {
+
+    margin-top: -30px;
+  }
+  .avatar {
+    width: 3em !important;
+    height: 3em;
+    margin-right: 1em;
+    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-left: 0 !important;
+    }
+
+    p {
+        color: #212e84 !important;
+    }
+
+    button.item.item-block.item-md {
+        padding-top: 10px;
+        border-bottom-color: #ebecf2 !important;
+    }
+}
+
+
+.item-md {
+    padding-left: 16px;
+    padding-right: 0;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+ion-label.label.label-md {
+    color: #141e61;
+}
+
+ion-list.list.list-md {
+    width: 100%;
+}
+
+.list-md[inset] {
+    margin: 0px;
+    border-radius: 2px;
+}
+
+button.item.item-block.item-md {
+    padding-top: 10px;
+}
+
+ion-icon.icon.icon-md.ion-ios-information-circle-outline.item-icon {
+    margin-top: 5px;
+    margin-right: 23px;
+}
+
+ion-icon.icon.icon-md.ion-ios-arrow-forward-outline.item-icon {
+    float: right;
+    margin-top: 5px;
+}
+
+.right {
+  float: right;
+    margin-top: 3px;
+    /* right: 11px; */
+    width: 11px;
+    /* right: 14px; */  
+}
+
+
+.user-info {
+    .name {
+      font-size: 15px !important;
+      margin-top: 5px;
+    }
+
+    .info {
+      font-size: 15px !important;
+      font-weight: 400;
+    }
+
+    .arrow {
+      margin-top: -23px;
+    }
+}

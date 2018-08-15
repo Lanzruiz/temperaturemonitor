@@ -1,0 +1,34 @@
+progressbar {
+	width: 50%;
+	padding-left: 5px;
+	padding-right: 5px;
+	.progress-outer {
+	        width: 70%;
+	        margin: auto;
+	        text-align: center;
+	        background-color: #f4f4f4;
+	        color: #fff;
+	        border-radius: 20px;
+	        margin-top: 70px;
+	 }
+
+	.progress-inner {
+	    min-width: 15%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    padding: 5px;
+	    border-radius: 20px;
+	
+	}
+	hr {
+	  border: 0;
+	  clear:both;
+	  display:block;
+	  width: 100%;               
+	  height: 5px;
+	}
+
+	.component-footer {
+		margin-top: -70px;
+	}
+}

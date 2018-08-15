@@ -1,0 +1,67 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Sort Cases
+    </ion-title>
+    <ion-buttons end> 
+
+    <button (click)="saveSort()" clear> Apply </button> 
+
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="margin-top-case-sort">
+  <ion-list radio-group [(ngModel)]="currSortBy">
+       <ion-list-header class="section1">
+          <ion-label>Sort By</ion-label>
+      </ion-list-header>
+       <ion-item class="item-margin-sort border">
+        <ion-label>Date Created</ion-label>
+        <ion-checkbox class="align-right" value="date_created" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Case Description</ion-label>
+        <ion-checkbox class="align-right" value="case_desc" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Assignee</ion-label>
+          <ion-checkbox class="align-right" value="assignee" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Status</ion-label>
+        <ion-checkbox class="align-right" value="status" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Resolution</ion-label>
+         <ion-checkbox class="align-right" value="resolution" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Region</ion-label>
+         <ion-checkbox class="align-right" value="region" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Site</ion-label>
+         <ion-checkbox class="align-right" value="site" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border">
+        <ion-label>Priority</ion-label>
+         <ion-checkbox class="align-right" value="priority" item-end></ion-checkbox>
+      </ion-item>
+  </ion-list>
+  <ion-list radio-group >
+       <ion-list-header class="section2">
+          <ion-label>Sort Order</ion-label>
+      </ion-list-header>
+       <ion-item class="item-margin-sort border">
+        <ion-label>Ascending</ion-label>
+        <ion-checkbox class="align-right" value="asc" item-end></ion-checkbox>
+      </ion-item>
+       <ion-item class="border">
+        <ion-label>Descending</ion-label>
+        <ion-checkbox class="align-right" value="desc" item-end></ion-checkbox>
+      </ion-item>
+  </ion-list>
+</ion-content>
